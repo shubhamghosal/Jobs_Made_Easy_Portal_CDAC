@@ -1,5 +1,5 @@
 package com.app.jme.model;
 
-public class Recruiter {
+public class Candidate {
 
 }
