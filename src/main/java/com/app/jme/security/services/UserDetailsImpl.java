@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class UserDetailsImpl implements UserDetails {
 	private static final long serialVersionUID = 1L;
 
-	private Long id;
+	private Long userid;
 
 	private String username;
 
@@ -26,9 +26,9 @@ public class UserDetailsImpl implements UserDetails {
 
 	private Collection<? extends GrantedAuthority> authorities;
 
-	public UserDetailsImpl(Long id, String username, String email, String password,
+	public UserDetailsImpl(Long userid, String username, String email, String password,
 			Collection<? extends GrantedAuthority> authorities) {
-		this.id = id;
+		this.userid = userid;
 		this.username = username;
 		this.email = email;
 		this.password = password;
@@ -39,7 +39,7 @@ public class UserDetailsImpl implements UserDetails {
 		List<GrantedAuthority> authorities = user.getRoles().stream()
 				.map(role -> new SimpleGrantedAuthority(role.getName().name())).collect(Collectors.toList());
 
-		return new UserDetailsImpl(user.getId(), user.getUsername(), user.getEmail(), user.getPassword(), authorities);
+		return new UserDetailsImpl(user.getUserid(), user.getUsername(), user.getEmail(), user.getPassword(), authorities);
 	}
 
 	@Override
@@ -47,8 +47,8 @@ public class UserDetailsImpl implements UserDetails {
 		return authorities;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getUserid() {
+		return userid;
 	}
 
 	public String getEmail() {
@@ -92,6 +92,6 @@ public class UserDetailsImpl implements UserDetails {
 		if (o == null || getClass() != o.getClass())
 			return false;
 		UserDetailsImpl user = (UserDetailsImpl) o;
-		return Objects.equals(id, user.id);
+		return Objects.equals(userid, user.userid);
 	}
 }

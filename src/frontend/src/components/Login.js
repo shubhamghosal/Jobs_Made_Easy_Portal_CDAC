@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-
 import AuthService from "../services/auth.service";
 
 const required = value => {
@@ -82,12 +81,16 @@ export default class Login extends Component {
   render() {
     return (
       <div className="col-md-12">
+        <br/>
         <div className="card card-container">
           <img
             src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
             alt="profile-img"
             className="profile-img-card"
           />
+          <div className="header-text">
+            Login
+          </div>
 
           <Form
             onSubmit={this.handleLogin}
@@ -118,7 +121,7 @@ export default class Login extends Component {
                 validations={[required]}
               />
             </div>
-
+            <br/>
             <div className="form-group">
               <button
                 className="btn btn-primary btn-block"
@@ -129,6 +132,19 @@ export default class Login extends Component {
                 )}
                 <span>Login</span>
               </button>
+            </div>
+            <br/>
+            <div className="form-group">
+              <p>
+                Looking for a new Job?
+                <a href="/register/candidate">Register Here</a>
+              </p>
+            </div>
+            <div className="form-group">
+              <p>
+                Want to hire new candidates?
+                <a href="/register/recruiter">Register Here</a>
+              </p>
             </div>
 
             {this.state.message && (

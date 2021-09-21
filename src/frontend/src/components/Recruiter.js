@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Button } from 'react-bootstrap';
 import UserService from "../services/user.service";
 
 export default class Recruiter extends Component {
@@ -33,10 +33,37 @@ export default class Recruiter extends Component {
 
   render() {
     return (
-      <div className="container">
-        <header className="jumbotron">
+      <div className="card">
+        <header className="header-text">
           <h3>{this.state.content}</h3>
         </header>
+        <div>
+          <Button variant="success">New Job Post +</Button>{' '}
+        </div>
+        <br />
+        <div>
+          <Button variant="success">Assign Assesment</Button>{' '}
+        </div>
+        <br />
+        <div>
+          <Button variant="success">Request BGV</Button>{' '}
+        </div>
+        <br />
+        <div>
+          <Button variant="success">Assign Interview</Button>{' '}
+        </div>
+        <br />
+        <div>
+          <Button variant="success">Reject Candidate</Button>{' '}
+        </div>
+        <br />
+        <div>
+          <Button variant="success">Confirm/Release Offer</Button>{' '}
+        </div>
+        <br/>
+        <div>
+        <Button variant="secondary">Check Status</Button>{' '}
+        </div>
       </div>
     );
   }

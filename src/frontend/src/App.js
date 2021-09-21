@@ -14,12 +14,23 @@ import ExpTipCandidate from "./components/ExpTipCandidate";
 import ExpTipRecruiter from "./components/ExpTipRecruiter";
 import FooterBar from "./components/FooterBar";
 import HeaderNavbar from "./components/HeaderNavbar";
+import RegisterCandidate from "./components/RegisterCandidate";
+import RegisterRecruiter from "./components/RegisterRecruiter";
+import CandidateProfile from "./components/CandidateProfile";
+import EditProfile from "./components/EditProfile";
+import StarfieldAnimation from 'react-starfield-animation'
 
 const App = () => {
   return (
-    <div>
+    <div className="App">
       <HeaderNavbar />
-      <FooterBar/>
+      <StarfieldAnimation
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%'
+        }}
+      />
       <div className="container mt-3">
         <Switch>
           <Route exact path={["/", "/home"]} component={Home} />
@@ -29,12 +40,19 @@ const App = () => {
           <Route exact path="/exptiprecr" component={ExpTipRecruiter} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/register/candidate" component={RegisterCandidate} />
+          <Route exact path="/register/recruiter" component={RegisterRecruiter} />
+          <Route path="/profiler/:id" component={Profile} />
+          <Route path="/profilec/:id" component={CandidateProfile} />
+          <Route path="/profile/edit" component={EditProfile} />
           <Route exact path="/candidate" component={Candidate} />
           <Route exact path="/recruiter" component={Recruiter} />
         </Switch>
       </div>
+
+      <FooterBar />
     </div>
+
   );
 };
 
