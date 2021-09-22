@@ -103,12 +103,44 @@ export default class CandidateProfile extends Component {
                   <strong>Skills Acquired:</strong>{" "}
                   {currentCandidate.skills}
                 </p>
+                <p>
+                  <strong>Highest Qualification:</strong>{" "}
+                  {currentCandidate.hqual}
+                </p>
+                <p>
+                  <strong>Specialization:</strong>{" "}
+                  {currentCandidate.major}
+                </p>
+                <p>
+                  <strong>Institute:</strong>{" "}
+                  {currentCandidate.institute}
+                </p>
+                <p>
+                  <strong>Year Of Qualification:</strong>{" "}
+                  {currentCandidate.yoq}
+                </p>
+                <p>
+                  <strong>Are You Experienced?:</strong>{" "}
+                  {currentCandidate.exp}
+                </p>
+                <p>
+                  <strong>Comapany Name(if any):</strong>{" "}
+                  {currentCandidate.company}
+                </p>
+                <p>
+                  <strong>Field Of Experience:</strong>{" "}
+                  {currentCandidate.foexp}
+                </p>
+                <p>
+                  <strong>Description:</strong>{" "}
+                  {currentCandidate.description}
+                </p>
               </div>
             ) : (
               <br />
             )}
           </div>
-          <button className="alert-success" href="/edit">Edit Profile</button>
+          <button className="btn btn-primary" href="/edit">Edit Profile</button>
         </div>
       </div>
 

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import AuthService from "../services/auth.service";
 import UserService from "../services/user.service";
 
-export default class Profile extends Component {
+export default class RecruiterProfile extends Component {
   constructor(props) {
     super(props);
     this.getRecruiter = this.getRecruiter.bind(this);

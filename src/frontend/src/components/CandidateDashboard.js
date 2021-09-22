@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Button } from 'react-bootstrap';
 import UserService from "../services/user.service";
 
-export default class Candidate extends Component {
+export default class CandidateDashboard extends Component {
   constructor(props) {
     super(props);
 

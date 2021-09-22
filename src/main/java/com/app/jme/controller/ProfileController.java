@@ -28,11 +28,10 @@ public class ProfileController {
 	@Autowired
 	CandidateRepository candRepo;
 
-	
 	@GetMapping("/recruiter/{id}")
 	@PreAuthorize("hasAuthority('RECRUITER')")
-	public ResponseEntity<Recruiter> getRecruiterById(@PathVariable("id") long id) {
-		Optional<Recruiter> recruiterData = recRepo.findById(id);
+	public ResponseEntity<?> getRecruiterById(@PathVariable("id") Long id) {
+		Optional<Recruiter> recruiterData = recRepo.findByUserId(id);
 
 		if (recruiterData.isPresent()) {
 			return new ResponseEntity<>(recruiterData.get(), HttpStatus.OK);
@@ -44,7 +43,7 @@ public class ProfileController {
 	@GetMapping("/candidate/{id}")
 	@PreAuthorize("hasAuthority('CANDIDATE')")
 	public ResponseEntity<?> getCandidateById(@PathVariable("id") Long id) {
-		Optional<Candidate> candidateData = candRepo.findById(id);
+		Optional<Candidate> candidateData = candRepo.findByUserId(id);
 
 		if (candidateData.isPresent()) {
 			return new ResponseEntity<>(candidateData.get(), HttpStatus.OK);

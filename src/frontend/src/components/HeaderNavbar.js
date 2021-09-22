@@ -15,7 +15,6 @@ class HeaderNavbar extends Component {
             showRecruiter: false,
             showCandidate: false,
             currentUser: undefined
-
         };
     }
 
@@ -39,7 +38,7 @@ class HeaderNavbar extends Component {
         const { currentUser, showRecruiter, showCandidate } = this.state;
         return (
             <div className="App-header">
-                <nav className="navbar navbar-expand navbar-dark bg-dark">
+                <nav className="navbar navbar-expand navbar-dark bg-gradient">
                     <Link to={"/"} className="navbar-brand">
                         <img
                             src={logo}
@@ -98,7 +97,7 @@ class HeaderNavbar extends Component {
                             {showCandidate && (
                                 <div className="nav navbar-nav ml-auto">
                                     <li className="nav-item">
-                                        <Link to={`/profilec/${this.props.data}`} className="nav-link">
+                                        <Link to={`/profilec/${currentUser.id}`} className="nav-link">
                                             {currentUser.username}
                                         </Link>
                                     </li>

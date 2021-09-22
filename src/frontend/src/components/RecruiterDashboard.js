@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Button } from 'react-bootstrap';
 import UserService from "../services/user.service";
 
-export default class Recruiter extends Component {
+export default class RecruiterDashboard extends Component {
   constructor(props) {
     super(props);
 
@@ -62,7 +62,7 @@ export default class Recruiter extends Component {
         </div>
         <br/>
         <div>
-        <Button variant="secondary">Check Status</Button>{' '}
+        <Button variant="secondary">Update Status</Button>{' '}
         </div>
       </div>
     );
