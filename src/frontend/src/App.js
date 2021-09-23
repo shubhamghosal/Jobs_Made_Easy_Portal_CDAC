@@ -14,23 +14,17 @@ import FooterBar from "./components/FooterBar";
 import HeaderNavbar from "./components/HeaderNavbar";
 import RegisterCandidate from "./components/RegisterCandidate";
 import RegisterRecruiter from "./components/RegisterRecruiter";
-import CandidateProfile from "./components/CandidateProfile";
-import EditProfile from "./components/EditProfile";
-import StarfieldAnimation from 'react-starfield-animation'
-import RecruiterProfile from "./components/RecruiterProfile";
+import EditRecruiterProfile from "./components/EditRecruiterProfile";
+import EditCandidateProfile from "./components/EditCandidateProfile";
+import Profile from "./components/Profile";
 import RecruiterDashboard from "./components/RecruiterDashboard";
+import JobPost from "./components/JobPost";
 
 const App = () => {
   return (
     <div className="App">
       <HeaderNavbar />
-      <StarfieldAnimation
-        style={{
-          position: 'absolute',
-          width: '100%',
-          height: '100%'
-        }}
-      />
+
       <div className="container mt-3">
         <Switch>
           <Route exact path={["/", "/home"]} component={Home} />
@@ -42,9 +36,10 @@ const App = () => {
           <Route exact path="/register" component={Register} />
           <Route exact path="/register/candidate" component={RegisterCandidate} />
           <Route exact path="/register/recruiter" component={RegisterRecruiter} />
-          <Route path="/profiler/:id" component={RecruiterProfile} />
-          <Route path="/profilec/:id" component={CandidateProfile} />
-          <Route path="/profile/edit" component={EditProfile} />
+          <Route exact path="/create/job" component={JobPost} />
+          <Route path="/profile/:id" component={Profile} />
+          <Route path="/profile_rec/:id" component={EditRecruiterProfile} />
+          <Route path="/profile_cand/:id" component={EditCandidateProfile} />
           <Route exact path="/candidate" component={CandidateDashboard} />
           <Route exact path="/recruiter" component={RecruiterDashboard} />
         </Switch>

@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   padding-bottom: 100px;
-  color: white;
+  color:black;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -47,22 +47,23 @@ label {
 }
 
 .card {
-  width: 70% !important;
-  background-color: aliceblue;
+  width: 80% !important;
+  background-color: whitesmoke;
   padding: 20px;
-  padding-top: 20px;
+  padding-top: 30px;
   margin-top: 20px;
   margin: auto;
   border-radius: 5px;
-  box-shadow: 5px 5px 15px aliceblue;
+  box-shadow: 5px 5px 15px black;
   border: 5px solid black;
   text-align: justify;
   color: black;
 }
 
+
 .form-group {
-  padding-left: 200px;
-  padding-right: 200px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 input[type="radio"]{
@@ -111,6 +112,21 @@ input[type="radio"]{
   text-decoration: underline;
 }
 
+.header-main {
+  text-align: center;
+  font-size: large;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  text-decoration: underline;
+  color: black;
+  font-size: 70px;
+  border: 5px solid black;
+  border-radius: 5px;
+  border: 5px solid black;
+  color: white;
+  background-color: #3a3f49 ;
+}
+
 .profile {
   font-size: x-large;
   font-family: sans-serif;
@@ -120,3 +136,38 @@ input[type="radio"]{
   padding-top: 10px;
 }
 
+#return-profile{
+  margin-left: 40px;
+}
+
+
+.mini-card {
+  width: 60% !important;
+  background-color: whitesmoke;
+  padding: 20px;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px black;
+  border: 5px solid black;
+  text-align: center;
+  color: black;
+}
+
+.header-sub {
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 30px;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.footer-card {
+  width: 100% !important;
+  background-color: whitesmoke;
+  padding: 20px;
+  padding-top: 30px;
+  margin-top: 20px;
+  text-align: justify;
+  color: black;
+
+}

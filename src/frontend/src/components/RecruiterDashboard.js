@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button } from 'react-bootstrap';
-import UserService from "../services/user.service";
+import DashboardService from "../services/dashboard.service";
 
 export default class RecruiterDashboard extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class RecruiterDashboard extends Component {
   }
 
   componentDidMount() {
-    UserService.getRecruiter().then(
+    DashboardService.getRecruiter().then(
       response => {
         this.setState({
           content: response.data
@@ -30,39 +30,53 @@ export default class RecruiterDashboard extends Component {
       }
     );
   }
-
   render() {
     return (
-      <div className="card">
-        <header className="header-text">
-          <h3>{this.state.content}</h3>
-        </header>
-        <div>
-          <Button variant="success">New Job Post +</Button>{' '}
+      <div>
+        <div className="header-main">
+          <p>DASHBOARD</p>
         </div>
         <br />
-        <div>
-          <Button variant="success">Assign Assesment</Button>{' '}
-        </div>
-        <br />
-        <div>
-          <Button variant="success">Request BGV</Button>{' '}
-        </div>
-        <br />
-        <div>
-          <Button variant="success">Assign Interview</Button>{' '}
-        </div>
-        <br />
-        <div>
-          <Button variant="success">Reject Candidate</Button>{' '}
-        </div>
-        <br />
-        <div>
-          <Button variant="success">Confirm/Release Offer</Button>{' '}
-        </div>
-        <br/>
-        <div>
-        <Button variant="secondary">Update Status</Button>{' '}
+        <div className="card">
+          <div>
+            <div className="mini-card">
+              <div className="header-sub">
+                <p>Create New Job Post</p>
+              </div>
+              <br />
+              <Button variant="success" href="create/job">New Job Post +</Button>{' '}
+            </div>
+            <br />
+          </div>
+          <br />
+          <div className="card">
+            <div className="header-sub">
+              <p>Job Posting Updates</p>
+            </div>
+
+
+          </div>
+          <br />
+          <div className="footer-card">
+            <span className="form-group">
+              <Button variant="success">Assign Assesment</Button>
+            </span>
+            <span className="form-group">
+              <Button variant="success">Request BGV</Button>
+            </span>
+            <span className="form-group">
+              <Button variant="success">Assign Interview</Button>
+            </span>
+            <span className="form-group">
+              <Button variant="success">Release Offer</Button>
+            </span>
+            <span className="form-group">
+              <Button variant="success">Reject Candidate</Button>
+            </span>
+            <span className="form-group">
+              <Button variant="success">Update Status</Button>
+            </span>
+          </div>
         </div>
       </div>
     );

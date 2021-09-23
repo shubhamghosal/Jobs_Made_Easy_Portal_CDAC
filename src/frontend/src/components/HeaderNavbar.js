@@ -93,35 +93,18 @@ class HeaderNavbar extends Component {
 
                     {currentUser ? (
                         <div class="nav navbar-nav ml-auto">
-
-                            {showCandidate && (
-                                <div className="nav navbar-nav ml-auto">
-                                    <li className="nav-item">
-                                        <Link to={`/profilec/${currentUser.id}`} className="nav-link">
-                                            {currentUser.username}
-                                        </Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href="/login" className="nav-link" onClick={this.logOut}>
-                                            LogOut
-                                        </a>
-                                    </li>
-                                </div>
-                            )}
-                            {showRecruiter && (
-                                <div className="nav navbar-nav ml-auto">
-                                    <li className="nav-item">
-                                        <Link to={`/profiler/${currentUser.id}`} className="nav-link">
-                                            {currentUser.username}
-                                        </Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href="/login" className="nav-link" onClick={this.logOut}>
-                                            LogOut
-                                        </a>
-                                    </li>
-                                </div>
-                            )}
+                            <div className="nav navbar-nav ml-auto">
+                                <li className="nav-item">
+                                    <Link to={`/profile/${currentUser.id}`} className="nav-link">
+                                        {currentUser.username}
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    <a href="/login" className="nav-link" onClick={this.logOut}>
+                                        LogOut
+                                    </a>
+                                </li>
+                            </div>
                         </div>
                     ) : (
                         <div className="nav navbar-nav ml-auto">
@@ -137,8 +120,6 @@ class HeaderNavbar extends Component {
                             </li>
                         </div>
                     )}
-
-
                 </nav>
             </div>
         )
