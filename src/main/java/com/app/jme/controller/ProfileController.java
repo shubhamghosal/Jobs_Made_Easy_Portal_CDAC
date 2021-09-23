@@ -56,6 +56,7 @@ public class ProfileController {
 	}
 
 	@GetMapping("/rec_edit/{id}")
+	@PreAuthorize("hasAuthority('RECRUITER')")
 	public ResponseEntity<Recruiter> getRecruiterById(@PathVariable("id") long id) {
 		Optional<Recruiter> recruiterData = recRepo.findById(id);
 
@@ -67,6 +68,7 @@ public class ProfileController {
 	}
 
 	@GetMapping("/cand_edit/{id}")
+	@PreAuthorize("hasAuthority('CANDIDATE')")
 	public ResponseEntity<Candidate> getCandidateById(@PathVariable("id") long id) {
 		Optional<Candidate> candidateData = candRepo.findById(id);
 

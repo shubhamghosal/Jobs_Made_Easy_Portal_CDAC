@@ -19,6 +19,7 @@ import EditCandidateProfile from "./components/EditCandidateProfile";
 import Profile from "./components/Profile";
 import RecruiterDashboard from "./components/RecruiterDashboard";
 import JobPost from "./components/JobPost";
+import JobDisplay from "./components/JobDisplay";
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
           <Route exact path="/register/candidate" component={RegisterCandidate} />
           <Route exact path="/register/recruiter" component={RegisterRecruiter} />
           <Route exact path="/create/job" component={JobPost} />
+          <Route exact path="/get/job" component={JobDisplay} />
           <Route path="/profile/:id" component={Profile} />
           <Route path="/profile_rec/:id" component={EditRecruiterProfile} />
           <Route path="/profile_cand/:id" component={EditCandidateProfile} />

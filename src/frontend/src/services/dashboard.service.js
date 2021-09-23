@@ -29,6 +29,14 @@ class DashboardService {
     });
   }
 
+  getJobPost() {
+    return axios.get(API_URL + 'get/job', { headers: authHeader() })
+  }
+
+  findByTitle(jobTitle) {
+    return axios.get(API_URL + `get/job?jobTitle=${jobTitle}`, { headers: authHeader() });
+  }
+
 }
 
 export default new DashboardService();

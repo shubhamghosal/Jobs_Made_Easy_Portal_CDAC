@@ -1,15 +1,19 @@
 package com.app.jme.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.jme.model.Jobs;
@@ -44,6 +48,25 @@ public class DashboardController {
 			return ResponseEntity.ok(new MessageResponse("New job post has been added successfully!"));
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@GetMapping("/get/job")
+	public ResponseEntity<List<Jobs>> getAllJobs(@RequestParam(required = false) String jobTitle) {
+		try {
+			List<Jobs> jobs = new ArrayList<Jobs>();
+			if (jobTitle == null) {
+				jobsRepo.findAll().forEach(jobs::add);
+			} else {
+				
+				jobsRepo.findByJobTitle(jobTitle).forEach(jobs::add);
+			}
+			if (jobs.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(jobs, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 

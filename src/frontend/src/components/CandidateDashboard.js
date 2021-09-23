@@ -38,31 +38,39 @@ export default class CandidateDashboard extends Component {
           <p>DASHBOARD</p>
         </div>
         <div className="card">
-          <header className="header-text">
-            <h3>{this.state.content}</h3>
-          </header>
           <div>
-            <Button variant="success">View Assesment</Button>{' '}
+            <div className="mini-card">
+              <div className="header-sub">
+                <p>Job Search</p>
+              </div>
+              <br />
+              <Button variant="success" href="get/job">Search All Jobs</Button>
+            </div>
+            <br />
           </div>
           <br />
-          <div>
-            <Button variant="success">View Interview</Button>{' '}
+          <div className="card">
+            <div className="header-sub">
+              <p>Jobs Applied Updates</p>
+            </div>
           </div>
           <br />
-          <div>
-            <Button variant="success">Fill Pending BGV</Button>{' '}
-          </div>
-          <br />
-          <div>
-            <Button variant="success">Confirm Joining</Button>{' '}
-          </div>
-          <br />
-          <div>
-            <Button variant="success">Reject Job</Button>{' '}
-          </div>
-          <br />
-          <div>
-            <Button variant="success">Download Offer</Button>{' '}
+          <div className="footer-card">
+            <span className="form-group">
+              <Button variant="success">Interview Status</Button>
+            </span>
+            <span className="form-group">
+              <Button variant="success">Fill Pending BGV</Button>{' '}
+            </span>
+            <span className="form-group">
+              <Button variant="success">Confirm Joining</Button>{' '}
+            </span>
+            <span className="form-group">
+              <Button variant="success">Reject Job</Button>{' '}
+            </span>
+            <span className="form-group">
+              <Button variant="success">Download Offer</Button>{' '}
+            </span>
           </div>
         </div>
       </div>

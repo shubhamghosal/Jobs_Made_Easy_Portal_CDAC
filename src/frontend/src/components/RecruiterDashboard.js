@@ -53,8 +53,6 @@ export default class RecruiterDashboard extends Component {
             <div className="header-sub">
               <p>Job Posting Updates</p>
             </div>
-
-
           </div>
           <br />
           <div className="footer-card">

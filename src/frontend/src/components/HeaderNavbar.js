@@ -85,7 +85,7 @@ class HeaderNavbar extends Component {
                         {showCandidate && (
                             <li className="nav-item">
                                 <Link to={"/candidate"} className="nav-link">
-                                    Candidate DashBoard
+                                    {currentUser.username}'s DashBoard
                                 </Link>
                             </li>
                         )}
