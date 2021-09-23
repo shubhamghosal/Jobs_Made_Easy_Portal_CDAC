@@ -126,7 +126,7 @@ export default class JobPost extends Component {
             DashboardService.createJobPost(
                 this.state.currentUser.id,
                 this.state.jobTitle,
-                this.state.jobVancancy,
+                this.state.jobVacancy,
                 this.state.reqExp,
                 this.state.jobType,
                 this.state.jobLocation,
