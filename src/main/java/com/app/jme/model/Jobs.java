@@ -67,7 +67,7 @@ public class Jobs implements Serializable {
 	}
 
 	public Jobs(String jobTitle, String jobVacancy, String reqExp, String jobType, String jobLocation, String jobSalary,
-			String jobDescription, Recruiter recruiter, Set<Candidate> candidate) {
+			String jobDescription, Recruiter recruiter) {
 		super();
 		this.jobTitle = jobTitle;
 		this.jobVacancy = jobVacancy;
@@ -77,7 +77,6 @@ public class Jobs implements Serializable {
 		this.jobSalary = jobSalary;
 		this.jobDescription = jobDescription;
 		this.recruiter = recruiter;
-		this.candidate = candidate;
 	}
 
 	public Long getJobid() {

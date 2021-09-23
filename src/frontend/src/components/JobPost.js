@@ -4,6 +4,7 @@ import Form from "react-validation/build/form";
 import DashboardService from "../services/dashboard.service";
 import Input from "react-validation/build/input";
 import Text from "react-validation/build/textarea";
+import AuthService from "../services/auth.service";
 
 const required = value => {
     if (!value) {
@@ -47,7 +48,7 @@ export default class JobPost extends Component {
         super(props);
         this.createJob = this.createJob.bind(this);
         this.onChangeJobTitle = this.onChangeJobTitle.bind(this);
-        this.onChangeJobVancancy = this.onChangeJobVancancy.bind(this);
+        this.onChangeJobVacancy = this.onChangeJobVacancy.bind(this);
         this.onSelectReqExp = this.onSelectReqExp.bind(this);
         this.onChangeJobTitle = this.onChangeJobTitle.bind(this);
         this.onChangeJobType = this.onChangeJobType.bind(this);
@@ -56,11 +57,9 @@ export default class JobPost extends Component {
         this.onChangeJobDescription = this.onChangeJobDescription.bind(this);
 
         this.state = {
-            currentRecruiter: {
-                compName: ""
-            },
+            currentUser: AuthService.getCurrentUser(),
             jobTitle: "",
-            jobVancancy: "",
+            jobVacancy: "",
             reqExp: "",
             jobType: "",
             jobLocation: "",
@@ -77,9 +76,9 @@ export default class JobPost extends Component {
         });
     }
 
-    onChangeJobVancancy(e) {
+    onChangeJobVacancy(e) {
         this.setState({
-            jobVancancy: e.target.value
+            jobVacancy: e.target.value
         });
     }
 
@@ -125,6 +124,7 @@ export default class JobPost extends Component {
 
         if (this.checkBtn.context._errors.length === 0) {
             DashboardService.createJobPost(
+                this.state.currentUser.id,
                 this.state.jobTitle,
                 this.state.jobVancancy,
                 this.state.reqExp,
@@ -156,7 +156,6 @@ export default class JobPost extends Component {
         }
 
     }
-
 
     render() {
         return (
@@ -191,8 +190,8 @@ export default class JobPost extends Component {
                                         type="number"
                                         className="form-control"
                                         id="jobVancancy"
-                                        value={this.state.jobVancancy}
-                                        onChange={this.onChangeJobVancancy}
+                                        value={this.state.jobVacancy}
+                                        onChange={this.onChangeJobVacancy}
                                     />
                                 </div>
                                 <div class="form-group">
@@ -316,7 +315,6 @@ export default class JobPost extends Component {
                                 this.checkBtn = c;
                             }}
                         />
-
                     </Form>
                 </div>
             </div>

@@ -32,7 +32,7 @@ public class ProfileController {
 	CandidateRepository candRepo;
 
 	@GetMapping("/recruiter/{id}")
-	/* @PreAuthorize("hasAuthority('RECRUITER')") */
+	@PreAuthorize("hasAuthority('RECRUITER')")
 	public ResponseEntity<?> getRecruiterById(@PathVariable("id") Long id) {
 		Optional<Recruiter> recruiterData = recRepo.findByUserId(id);
 

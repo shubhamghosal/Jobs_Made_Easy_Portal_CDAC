@@ -215,7 +215,7 @@ export default class EditRecruiterProfile extends Component {
                         </p>
                         <p className="form-group">
                             <strong>Application No:</strong>{" "}
-                            {currentRecruiter.recrid}
+                            {currentUser.id}
                         </p>
                         <p className="form-group">
                             <strong>Email:</strong>{" "}
