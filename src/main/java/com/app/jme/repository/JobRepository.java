@@ -12,4 +12,8 @@ public interface JobRepository extends JpaRepository<Jobs, Long> {
 	
 	List<Jobs> findByJobTitle(String jobTitle);
 	
+	/*
+	 * @Query("FROM Candidate c WHERE user_id= :id") public Set<Jobs>
+	 * insertJobIdAndCandidateId(@Param("id") Long id);
+	 */
 }

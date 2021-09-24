@@ -1,8 +1,6 @@
 package com.app.jme.model;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,8 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -57,10 +53,6 @@ public class Jobs implements Serializable {
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "recr_id", referencedColumnName = "recr_id")
 	private Recruiter recruiter;
-
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "job_candidate", joinColumns = @JoinColumn(name = "job_id"), inverseJoinColumns = @JoinColumn(name = "cand_id"))
-	private Set<Candidate> candidate = new HashSet<>();
 
 	public Jobs() {
 
@@ -149,14 +141,6 @@ public class Jobs implements Serializable {
 
 	public void setRecruiter(Recruiter recruiter) {
 		this.recruiter = recruiter;
-	}
-
-	public Set<Candidate> getCandidate() {
-		return candidate;
-	}
-
-	public void setCandidate(Set<Candidate> candidate) {
-		this.candidate = candidate;
 	}
 
 }

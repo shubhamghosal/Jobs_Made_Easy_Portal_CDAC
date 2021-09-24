@@ -39,7 +39,7 @@ class HeaderNavbar extends Component {
         return (
             <div className="App-header">
                 <nav className="navbar navbar-expand navbar-dark bg-gradient">
-                    <Link to={"/"} className="navbar-brand">
+                    <Link to={"/home"} className="navbar-brand">
                         <img
                             src={logo}
                             alt="logo"

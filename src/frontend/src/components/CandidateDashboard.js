@@ -44,7 +44,7 @@ export default class CandidateDashboard extends Component {
                 <p>Job Search</p>
               </div>
               <br />
-              <Button variant="success" href="get/job">Search All Jobs</Button>
+              <Button variant="success" href="get/job">Search and Apply</Button>
             </div>
             <br />
           </div>
@@ -56,19 +56,19 @@ export default class CandidateDashboard extends Component {
           </div>
           <br />
           <div className="footer-card">
-            <span className="form-group">
-              <Button variant="success">Interview Status</Button>
+            <span>
+              <Button variant="success">Interview Status</Button>{' '}
             </span>
-            <span className="form-group">
+            <span>
               <Button variant="success">Fill Pending BGV</Button>{' '}
             </span>
-            <span className="form-group">
+            <span>
               <Button variant="success">Confirm Joining</Button>{' '}
             </span>
-            <span className="form-group">
+            <span>
               <Button variant="success">Reject Job</Button>{' '}
             </span>
-            <span className="form-group">
+            <span>
               <Button variant="success">Download Offer</Button>{' '}
             </span>
           </div>

@@ -30,13 +30,18 @@ class DashboardService {
   }
 
   getJobPost() {
-    return axios.get(API_URL + 'get/job', { headers: authHeader() })
+    return axios.get(API_URL + 'get/job/', { headers: authHeader() })
   }
 
   findByTitle(jobTitle) {
     return axios.get(API_URL + `get/job?jobTitle=${jobTitle}`, { headers: authHeader() });
   }
 
+  applyJob(id, jobid) {
+    return axios.post(API_URL + `apply/job/${id}/${jobid}`);
+  }
+
 }
+
 
 export default new DashboardService();

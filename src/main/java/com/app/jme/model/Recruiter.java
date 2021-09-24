@@ -1,6 +1,8 @@
 package com.app.jme.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -68,6 +71,10 @@ public class Recruiter implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
 	private User user;
+	
+	@OneToMany(mappedBy = "recruiter", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	private Set<Jobs> job = new HashSet<>();
+
 
 	public Recruiter() {
 

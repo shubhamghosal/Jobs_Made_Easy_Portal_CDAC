@@ -185,11 +185,11 @@ export default class JobPost extends Component {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="jobVancancy">Approximate Vacancies</label>
+                                    <label htmlFor="jobVacancy">Approximate Vacancies</label>
                                     <Input
                                         type="number"
                                         className="form-control"
-                                        id="jobVancancy"
+                                        id="jobVacancy"
                                         value={this.state.jobVacancy}
                                         onChange={this.onChangeJobVacancy}
                                     />

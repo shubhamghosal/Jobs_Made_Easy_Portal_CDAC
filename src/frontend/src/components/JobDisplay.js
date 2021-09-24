@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import DashboardService from "../services/dashboard.service";
-import { Link } from "react-router-dom";
+import AuthService from "../services/auth.service";
 
 export default class JobDisplay extends Component {
     constructor(props) {
@@ -9,12 +9,15 @@ export default class JobDisplay extends Component {
         this.searchTitle = this.searchTitle.bind(this);
         this.setActiveJob = this.setActiveJob.bind(this);
         this.refreshList = this.refreshList.bind(this);
+        this.applyJob = this.applyJob.bind(this);
         this.onChangeSearchTitle = this.onChangeSearchTitle.bind(this);
         this.state = {
+            currentUser: AuthService.getCurrentUser(),
             jobs: [],
             currentJob: null,
             currentIndex: -1,
-            searchTitle: ""
+            searchTitle: "",
+            message: "",
         };
     }
     componentDidMount() {
@@ -69,6 +72,25 @@ export default class JobDisplay extends Component {
             });
     }
 
+    applyJob() {
+        DashboardService.applyJob(
+            this.state.currentUser.id,
+            this.state.currentJob.jobid
+        )
+            .then(response => {
+                console.log(response.data);
+                this.setState({
+                    message: "The job was applied successfully!",
+                });
+            })
+            .catch(e => {
+                console.log(e);
+                this.setState({
+                    message: "Application Failed"
+                });
+            });
+    }
+
     render() {
         const { searchTitle, jobs, currentJob, currentIndex } = this.state;
         return (
@@ -100,7 +122,7 @@ export default class JobDisplay extends Component {
                     </div>
                     <br />
                     <div>
-                        <h2><u>Job List</u></h2>
+                        <h3><strong><u>Jobs Available</u></strong></h3>
 
                         <ul className="list-group">
                             {jobs &&
@@ -113,7 +135,7 @@ export default class JobDisplay extends Component {
                                         onClick={() => this.setActiveJob(job, index)}
                                         key={index}
                                     >
-                                        {job.jobTitle}
+                                        {job.jobTitle} (Vacancy: {job.jobVacancy})
                                     </li>
                                 ))}
                         </ul>
@@ -155,7 +177,7 @@ export default class JobDisplay extends Component {
                                 </div>
                                 <div>
                                     <label>
-                                        <strong>Approximate Salary:</strong>
+                                        <strong>Approximate Salary (in CTC):</strong>
                                     </label>
                                     {currentJob.jobSalary}
                                 </div>
@@ -165,12 +187,14 @@ export default class JobDisplay extends Component {
                                     </label>
                                     {currentJob.jobDescription}
                                 </div>
-                                <Link
-                                    to={"/get/job" + currentJob.jobid}
-                                    className="badge badge-warning"
-                                >
-                                    Edit
-                                </Link>
+                                <br />
+                                <div>
+                                    <button className="btn btn-success" type="button" onClick={this.applyJob}>Apply</button>
+                                </div>
+                                <br/>
+                                <div className="form-group">
+                                    <b>{this.state.message}</b>
+                                </div>
                             </div>
                         ) : (
                             <div>

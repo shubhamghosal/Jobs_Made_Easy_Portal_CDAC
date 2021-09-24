@@ -14,5 +14,8 @@ public interface CandidateRepository extends JpaRepository<Candidate, Long> {
 
 	@Query("FROM Candidate c WHERE user_id= :id")
 	public Optional<Candidate> findByUserId(@Param("id") Long id);
+	
+	@Query("FROM Candidate c WHERE user_id= :id")
+	public Candidate findByUserDefId(@Param("id") Long id);
 
 }

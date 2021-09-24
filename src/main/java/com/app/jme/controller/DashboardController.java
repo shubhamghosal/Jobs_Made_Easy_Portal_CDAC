@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,9 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.jme.model.Candidate;
+import com.app.jme.model.JobApplication;
 import com.app.jme.model.Jobs;
 import com.app.jme.model.Recruiter;
 import com.app.jme.payload.response.MessageResponse;
+import com.app.jme.repository.CandidateRepository;
+import com.app.jme.repository.JobApplyRepository;
 import com.app.jme.repository.JobRepository;
 import com.app.jme.repository.RecruiterRepository;
 
@@ -32,6 +37,12 @@ public class DashboardController {
 
 	@Autowired
 	RecruiterRepository recRepo;
+
+	@Autowired
+	CandidateRepository candRepo;
+
+	@Autowired
+	JobApplyRepository jobApplyRepo;
 
 	@PostMapping("/create/job/{id}")
 	public ResponseEntity<?> addNewJobPost(@PathVariable("id") long id, @RequestBody Jobs job) {
@@ -52,13 +63,14 @@ public class DashboardController {
 	}
 
 	@GetMapping("/get/job")
+	@PreAuthorize("hasAuthority('CANDIDATE')")
 	public ResponseEntity<List<Jobs>> getAllJobs(@RequestParam(required = false) String jobTitle) {
 		try {
 			List<Jobs> jobs = new ArrayList<Jobs>();
 			if (jobTitle == null) {
 				jobsRepo.findAll().forEach(jobs::add);
 			} else {
-				
+
 				jobsRepo.findByJobTitle(jobTitle).forEach(jobs::add);
 			}
 			if (jobs.isEmpty()) {
@@ -68,6 +80,27 @@ public class DashboardController {
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+	}
+
+	@PostMapping("/apply/job/{userid}/{jobid}")
+	public ResponseEntity<?> applyJob(@PathVariable("userid") long userid, @PathVariable("jobid") long jobid) {
+
+		Optional<Candidate> candidateData = candRepo.findByUserId(userid);
+
+		Optional<Jobs> jobsData = jobsRepo.findById(jobid);
+
+		if (candidateData.isPresent()) {
+			Candidate _candidate = candidateData.get();
+			Jobs _job = jobsData.get();
+
+			JobApplication jobApply = new JobApplication(_job, _candidate);
+
+			jobApplyRepo.save(jobApply);
+			return ResponseEntity.ok(new MessageResponse("Job Application successfully completed!"));
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+
 	}
 
 }

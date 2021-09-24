@@ -81,6 +81,7 @@ public class Candidate implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
 	private User user;
+	
 
 	public Candidate() {
 
@@ -164,9 +165,6 @@ public class Candidate implements Serializable {
 		this.hqual = hqual;
 	}
 	
-	
-	
-
 	public String getMajor() {
 		return major;
 	}
