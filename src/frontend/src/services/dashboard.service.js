@@ -45,6 +45,10 @@ class DashboardService {
     return axios.get(API_URL + `track/job/${id}`, { headers: authHeader() })
   }
 
+  viewJobApplication(id) {
+    return axios.get(API_URL + `view/job/${id}`, { headers: authHeader() })
+  }
+
 }
 
 

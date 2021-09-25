@@ -1,36 +1,49 @@
 import React, { Component } from "react";
 import { Button } from 'react-bootstrap';
 import DashboardService from "../services/dashboard.service";
+import AuthService from "../services/auth.service";
 
 export default class RecruiterDashboard extends Component {
   constructor(props) {
     super(props);
+    this.viewJobs = this.viewJobs.bind(this);
+    this.setActiveJob = this.setActiveJob.bind(this);
 
     this.state = {
-      content: ""
+      currentUser: AuthService.getCurrentUser(),
+      jobs: [],
+      currentJob: null,
+      currentIndex: -1,
     };
   }
 
   componentDidMount() {
-    DashboardService.getRecruiter().then(
-      response => {
-        this.setState({
-          content: response.data
-        });
-      },
-      error => {
-        this.setState({
-          content:
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString()
-        });
-      }
-    );
+    this.viewJobs(this.state.currentUser.id);
   }
+
+  viewJobs(id) {
+    DashboardService.viewJobApplication(id)
+      .then(response => {
+        this.setState({
+          jobs: response.data
+        });
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+
+  setActiveJob(job, index) {
+    this.setState({
+      currentJob: job,
+      currentIndex: index
+    });
+  }
+
+
   render() {
+    const { jobs, currentIndex, currentJob } = this.state;
     return (
       <div>
         <div className="header-main">
@@ -53,6 +66,38 @@ export default class RecruiterDashboard extends Component {
             <div className="header-sub">
               <p>Job Posting Updates</p>
             </div>
+            <div>
+              <ul className="list-group">
+                {jobs &&
+                  jobs.map((job, index) => (
+                    <li
+                      className={
+                        "list-group-item " +
+                        (index === currentIndex ? "active" : "")
+                      }
+                      onClick={() => this.setActiveJob(job, index)}
+                      key={index}
+                    >
+                      {job.jobTitle}
+                    </li>
+                  ))}
+              </ul>
+            </div>
+            <br />
+            <div>
+              {currentJob ? (
+                <div>
+                  <button type="button" className="btn btn-success" id="status-button">View Candidates Applied</button> {' '}
+                  <button type="button" className="btn btn-success" id="status-button">Update Status</button> {' '}
+                  <button type="button" className="btn btn-danger" id="status-button">Drop Job Post</button>
+                </div>
+              ) : (
+                <div>
+                  <br />
+                  <b>Click on the created Job to track status</b>
+                </div>
+              )}
+            </div>
           </div>
           <br />
           <div className="footer-card">
@@ -70,9 +115,6 @@ export default class RecruiterDashboard extends Component {
             </span>
             <span className="form-group">
               <Button variant="success">Reject Candidate</Button>
-            </span>
-            <span className="form-group">
-              <Button variant="success">Update Status</Button>
             </span>
           </div>
         </div>

@@ -15,4 +15,6 @@ public interface JobApplyRepository extends JpaRepository<JobApplication, Long>{
 	@Query("FROM JobApplication j WHERE cand_id= :candid")
 	List<JobApplication> findAllById(@Param("candid") long candid);
 
+	@Query("FROM JobApplication j WHERE job_id= :jobid")
+	List<JobApplication> findCandidateByJobId(@Param("jobid") long jobid);
 }

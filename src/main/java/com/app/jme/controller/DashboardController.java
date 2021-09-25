@@ -121,6 +121,28 @@ public class DashboardController {
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+	}
+
+	@GetMapping("/view/job/{userid}")
+	public ResponseEntity<?> viewCreatedJobs(@PathVariable("userid") long userid) {
+
+		try {
+			List<Jobs> jobs = new ArrayList<Jobs>();
+			Optional<Recruiter> recruiterData = recRepo.findByUserId(userid);
+
+			if (recruiterData.isPresent()) {
+				Recruiter _recr = recruiterData.get();
+				
+				jobsRepo.findJobByRecId(_recr.getRecrid()).forEach(jobs::add);
+
+				return new ResponseEntity<>(jobs, HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 
 	}
 

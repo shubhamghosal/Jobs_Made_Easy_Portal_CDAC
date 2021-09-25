@@ -86,7 +86,9 @@ export default class CandidateDashboard extends Component {
             <div>
               {currentJob ? (
                 <div>
-                  <Popup trigger={<button type="button" className="btn btn-success" id="status-button">Check Status</button>} position="right center">
+                  <Popup
+                    trigger={<button type="button" className="btn btn-success" id="status-button">Check Status</button>}
+                    position="bottom center">
                     <div><strong>Application Accepted !!</strong></div>
                   </Popup>
                   <button type="button" className="btn btn-danger" id="status-button">Reject Job</button>
