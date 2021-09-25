@@ -10,12 +10,15 @@ export default class CandidateDashboard extends Component {
     super(props);
     this.trackJobs = this.trackJobs.bind(this);
     this.setActiveJob= this.setActiveJob.bind(this);
+    this.checkStatus= this.checkStatus.bind(this);
+
 
     this.state = {
       currentUser: AuthService.getCurrentUser(),
       currentApplication: [],
       currentJob: null,
-      currentIndex: -1
+      currentIndex: -1,
+      currentStatus: []
     };
   }
 
@@ -43,8 +46,22 @@ export default class CandidateDashboard extends Component {
       });
   }
 
+  checkStatus() {
+    DashboardService.viewStatus(this.state.currentUser.id)
+        .then(response => {
+            this.setState({
+                currentStatus: response.data
+            });
+            console.log(response.data);
+        })
+        .catch(e => {
+            console.log(e);
+        });
+}
+
+
   render() {
-    const { currentApplication, currentIndex, currentJob } = this.state;
+    const { currentApplication, currentIndex, currentJob, currentStatus } = this.state;
     return (
       <div className="container">
         <div className="header-main">
@@ -89,8 +106,8 @@ export default class CandidateDashboard extends Component {
                 <div>
                   <Popup
                     trigger={<button type="button" className="btn btn-success" id="status-button">Check Status</button>}
-                    position="bottom center">
-                    <div><strong>Application Accepted !!</strong></div>
+                    position="top center">
+                    <div><strong>Status: {currentStatus.status}</strong></div>
                   </Popup>
                   <button type="button" className="btn btn-danger" id="status-button">Reject Job</button>
                 </div>

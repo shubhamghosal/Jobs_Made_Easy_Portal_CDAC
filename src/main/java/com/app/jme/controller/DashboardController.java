@@ -12,17 +12,20 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.jme.model.Candidate;
+import com.app.jme.model.CandidateStatus;
 import com.app.jme.model.JobApplication;
 import com.app.jme.model.Jobs;
 import com.app.jme.model.Recruiter;
 import com.app.jme.payload.response.MessageResponse;
 import com.app.jme.repository.CandidateRepository;
+import com.app.jme.repository.CandidateStatusRepository;
 import com.app.jme.repository.JobApplyRepository;
 import com.app.jme.repository.JobRepository;
 import com.app.jme.repository.RecruiterRepository;
@@ -43,6 +46,9 @@ public class DashboardController {
 
 	@Autowired
 	JobApplyRepository jobApplyRepo;
+
+	@Autowired
+	CandidateStatusRepository candStatusRepo;
 
 	@PostMapping("/create/job/{id}")
 	public ResponseEntity<?> addNewJobPost(@PathVariable("id") long id, @RequestBody Jobs job) {
@@ -132,7 +138,7 @@ public class DashboardController {
 
 			if (recruiterData.isPresent()) {
 				Recruiter _recr = recruiterData.get();
-				
+
 				jobsRepo.findJobByRecId(_recr.getRecrid()).forEach(jobs::add);
 
 				return new ResponseEntity<>(jobs, HttpStatus.OK);
@@ -145,24 +151,66 @@ public class DashboardController {
 		}
 
 	}
-	
+
 	@GetMapping("/applied/status/{jobid}")
 	public ResponseEntity<?> appliedCandidates(@PathVariable("jobid") long jobid) {
-		
+
 		List<JobApplication> jobs = new ArrayList<JobApplication>();
-		
+
 		Optional<Jobs> jobData = jobsRepo.findById(jobid);
-		
-		if(jobData.isPresent()) {
+
+		if (jobData.isPresent()) {
 			jobApplyRepo.findCandidateByJobId(jobid).forEach(jobs::add);
-			
+
 			return new ResponseEntity<>(jobs, HttpStatus.OK);
-			
+
 		} else {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
-		
+
 	}
+
+	@PutMapping("/set/status/{status}/{candid}/{jobid}")
+	public ResponseEntity<?> setCandidateStatus(@PathVariable("status") String status,
+			@PathVariable("candid") long candid, @PathVariable("jobid") long jobid) {
+
+		Optional<Candidate> candidateData = candRepo.findById(candid);
+		Optional<Jobs> jobData = jobsRepo.findById(jobid);
+
+		if (jobData.isPresent()) {
+			Candidate _cand = candidateData.get();
+			Jobs _job = jobData.get();
+			CandidateStatus candStatus = new CandidateStatus(_cand, _job, status);
+
+			candStatusRepo.save(candStatus);
+
+			return ResponseEntity.ok(new MessageResponse("Candidate status has been updated successfully!"));
+
+		}
+
+		else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+
+	}
+
+	@GetMapping("/view/status/{userid}")
+	public ResponseEntity<?> viewCandidateStatus(@PathVariable("userid") long userid) {
+
+		Optional<Candidate> candidateData = candRepo.findByUserId(userid);
+
+		if (candidateData.isPresent()) {
+			Candidate candidate = candidateData.get();
+
+			CandidateStatus status = candStatusRepo.findByCandidateId(candidate.getCandid());
+
+			return new ResponseEntity<>(status, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+
+	}
+	
 	
 
 }

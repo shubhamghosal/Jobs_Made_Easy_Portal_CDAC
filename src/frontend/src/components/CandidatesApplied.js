@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Button } from 'react-bootstrap';
 import AuthService from "../services/auth.service";
 import DashboardService from "../services/dashboard.service";
 
@@ -7,12 +6,17 @@ export default class CandidatesApplied extends Component {
     constructor(props) {
         super(props);
         this.getCandidate = this.getCandidate.bind(this);
+        this.selectCandidate = this.selectCandidate.bind(this);
+        this.rejectCandidate = this.rejectCandidate.bind(this);
 
         this.state = {
             currentUser: AuthService.getCurrentUser(),
             currentApplication: [],
             currentCandidate: null,
-            currentIndex: -1
+            currentIndex: -1,
+            selectStatus: "SHORTLISTED",
+            rejectStatus: "REJECTED",
+            message: ""
         };
     }
 
@@ -38,6 +42,48 @@ export default class CandidatesApplied extends Component {
             currentCandidate: job.candidate,
             currentIndex: index
         });
+    }
+
+    selectCandidate() {
+        DashboardService.setCandidateStatus(
+            this.state.selectStatus,
+            this.state.currentCandidate.candid,
+            this.props.match.params.id
+        )
+        .then(response => {
+            console.log(response.data);
+            this.setState({
+                message: "The candidate is shortlisted successfully!"
+            });
+        })
+        .catch(e => {
+            console.log(e);
+            this.setState({
+                message: "Shortlisting Failed!!!"
+            });
+        });
+
+    }
+
+    rejectCandidate() {
+        DashboardService.setCandidateStatus(
+            this.state.rejectStatus,
+            this.state.currentCandidate.candid,
+            this.props.match.params.id
+        )
+        .then(response => {
+            console.log(response.data);
+            this.setState({
+                message: "The candidate is rejected successfully!"
+            });
+        })
+        .catch(e => {
+            console.log(e);
+            this.setState({
+                message: "Rejection Failed!!!"
+            });
+        });
+
     }
 
 
@@ -163,8 +209,11 @@ export default class CandidatesApplied extends Component {
                                 </div>
                                 <br />
                                 <div className="form-group">
-                                    <Button variant="success">Update Status</Button>{' '}
+                                    <button type="button" className="btn btn-success" onClick={this.selectCandidate}>Shortlist</button>{' '}
+                                    <button type="button" className="btn btn-danger" onClick={this.rejectCandidate}>Reject</button>{' '}
                                 </div>
+                                <br/>
+                                {this.state.message}
                             </div>
                         ) : (
                             <div>
