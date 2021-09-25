@@ -41,6 +41,10 @@ class DashboardService {
     return axios.post(API_URL + `apply/job/${id}/${jobid}`);
   }
 
+  trackJobApplication(id) {
+    return axios.get(API_URL + `track/job/${id}`, { headers: authHeader() })
+  }
+
 }
 
 

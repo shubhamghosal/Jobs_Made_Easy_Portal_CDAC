@@ -103,4 +103,25 @@ public class DashboardController {
 
 	}
 
+	@GetMapping("/track/job/{userid}")
+	public ResponseEntity<List<JobApplication>> getAllJobs(@PathVariable("userid") long userid) {
+		try {
+			List<JobApplication> jobs = new ArrayList<JobApplication>();
+
+			Optional<Candidate> candidateData = candRepo.findByUserId(userid);
+
+			if (candidateData.isPresent()) {
+				Candidate _cand = candidateData.get();
+				jobApplyRepo.findAllById(_cand.getCandid()).forEach(jobs::add);
+				return new ResponseEntity<>(jobs, HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+	}
+
 }

@@ -42,7 +42,7 @@ const App = () => {
           <Route path="/profile/:id" component={Profile} />
           <Route path="/profile_rec/:id" component={EditRecruiterProfile} />
           <Route path="/profile_cand/:id" component={EditCandidateProfile} />
-          <Route exact path="/candidate" component={CandidateDashboard} />
+          <Route path="/candidate" component={CandidateDashboard} />
           <Route exact path="/recruiter" component={RecruiterDashboard} />
         </Switch>
       </div>

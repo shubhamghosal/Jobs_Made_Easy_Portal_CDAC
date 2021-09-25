@@ -178,3 +178,8 @@ input[type="radio"]{
   background-color: black;
   color: aliceblue;
 }
+
+#status-button{
+  padding-left: 10px;
+  padding-right: 10px;
+}
