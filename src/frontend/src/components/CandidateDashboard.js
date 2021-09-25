@@ -9,6 +9,7 @@ export default class CandidateDashboard extends Component {
   constructor(props) {
     super(props);
     this.trackJobs = this.trackJobs.bind(this);
+    this.setActiveJob= this.setActiveJob.bind(this);
 
     this.state = {
       currentUser: AuthService.getCurrentUser(),

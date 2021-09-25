@@ -87,9 +87,8 @@ export default class RecruiterDashboard extends Component {
             <div>
               {currentJob ? (
                 <div>
-                  <button type="button" className="btn btn-success" id="status-button">View Candidates Applied</button> {' '}
-                  <button type="button" className="btn btn-success" id="status-button">Update Status</button> {' '}
-                  <button type="button" className="btn btn-danger" id="status-button">Drop Job Post</button>
+                  <Button variant="success" href={`applied/status/${currentJob.jobid}`}>View Candidates Applied</Button>{' '}
+                  <Button variant="danger" >Drop Job Post</Button>{' '}
                 </div>
               ) : (
                 <div>

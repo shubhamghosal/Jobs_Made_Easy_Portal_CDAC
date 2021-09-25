@@ -49,6 +49,10 @@ class DashboardService {
     return axios.get(API_URL + `view/job/${id}`, { headers: authHeader() })
   }
 
+  appliedCandidates(id) {
+    return axios.get(API_URL + `applied/status/${id}`, { headers: authHeader() })
+  }
+
 }
 
 

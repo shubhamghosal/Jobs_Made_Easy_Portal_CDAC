@@ -145,5 +145,24 @@ public class DashboardController {
 		}
 
 	}
+	
+	@GetMapping("/applied/status/{jobid}")
+	public ResponseEntity<?> appliedCandidates(@PathVariable("jobid") long jobid) {
+		
+		List<JobApplication> jobs = new ArrayList<JobApplication>();
+		
+		Optional<Jobs> jobData = jobsRepo.findById(jobid);
+		
+		if(jobData.isPresent()) {
+			jobApplyRepo.findCandidateByJobId(jobid).forEach(jobs::add);
+			
+			return new ResponseEntity<>(jobs, HttpStatus.OK);
+			
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		
+	}
+	
 
 }

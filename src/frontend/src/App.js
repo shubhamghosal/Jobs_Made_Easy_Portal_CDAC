@@ -20,6 +20,7 @@ import Profile from "./components/Profile";
 import RecruiterDashboard from "./components/RecruiterDashboard";
 import JobPost from "./components/JobPost";
 import JobDisplay from "./components/JobDisplay";
+import CandidatesApplied from "./components/CandidatesApplied";
 
 const App = () => {
   return (
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/profile_rec/:id" component={EditRecruiterProfile} />
           <Route path="/profile_cand/:id" component={EditCandidateProfile} />
           <Route path="/candidate" component={CandidateDashboard} />
+          <Route path="/applied/status/:id" component={CandidatesApplied} />
           <Route exact path="/recruiter" component={RecruiterDashboard} />
         </Switch>
       </div>
