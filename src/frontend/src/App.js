@@ -8,8 +8,6 @@ import Home from "./components/Home";
 import CandidateDashboard from "./components/CandidateDashboard";
 import About from "./components/About";
 import Help from "./components/Help";
-import ExpTipCandidate from "./components/ExpTipCandidate";
-import ExpTipRecruiter from "./components/ExpTipRecruiter";
 import FooterBar from "./components/FooterBar";
 import HeaderNavbar from "./components/HeaderNavbar";
 import RegisterCandidate from "./components/RegisterCandidate";
@@ -21,6 +19,7 @@ import RecruiterDashboard from "./components/RecruiterDashboard";
 import JobPost from "./components/JobPost";
 import JobDisplay from "./components/JobDisplay";
 import CandidatesApplied from "./components/CandidatesApplied";
+import CheckStatus from "./components/CheckStatus";
 
 const App = () => {
   return (
@@ -32,8 +31,6 @@ const App = () => {
           <Route exact path={["/", "/home"]} component={Home} />
           <Route exact path="/about" component={About} />
           <Route exact path="/help" component={Help} />
-          <Route exact path="/exptipcand" component={ExpTipCandidate} />
-          <Route exact path="/exptiprecr" component={ExpTipRecruiter} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/register/candidate" component={RegisterCandidate} />
@@ -45,6 +42,7 @@ const App = () => {
           <Route path="/profile_cand/:id" component={EditCandidateProfile} />
           <Route path="/candidate" component={CandidateDashboard} />
           <Route path="/applied/status/:id" component={CandidatesApplied} />
+          <Route path="/check/status/:id" component={CheckStatus} />
           <Route exact path="/recruiter" component={RecruiterDashboard} />
         </Switch>
       </div>

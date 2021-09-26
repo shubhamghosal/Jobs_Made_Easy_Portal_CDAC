@@ -183,3 +183,20 @@ input[type="radio"]{
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.micro-card {
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  width: 62% !important;
+  float: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.status-update {
+  text-align: center;
+  padding-bottom: 5px;
+  text-decoration: underline;
+  font-weight: bold;
+}

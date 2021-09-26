@@ -2,23 +2,18 @@ import React, { Component } from "react";
 import { Button } from 'react-bootstrap';
 import DashboardService from "../services/dashboard.service";
 import AuthService from "../services/auth.service";
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
 
 export default class CandidateDashboard extends Component {
   constructor(props) {
     super(props);
     this.trackJobs = this.trackJobs.bind(this);
-    this.setActiveJob= this.setActiveJob.bind(this);
-    this.checkStatus= this.checkStatus.bind(this);
-
+    this.setActiveJob = this.setActiveJob.bind(this);
 
     this.state = {
       currentUser: AuthService.getCurrentUser(),
       currentApplication: [],
       currentJob: null,
       currentIndex: -1,
-      currentStatus: []
     };
   }
 
@@ -26,10 +21,16 @@ export default class CandidateDashboard extends Component {
     this.trackJobs(this.state.currentUser.id);
   }
 
+  onChangeExp(e) {
+    this.setState({
+      exp: e.target.value
+    });
+  }
+
   setActiveJob(job, index) {
     this.setState({
       currentJob: job.job,
-      currentIndex: index
+      currentIndex: index,
     });
   }
 
@@ -46,22 +47,9 @@ export default class CandidateDashboard extends Component {
       });
   }
 
-  checkStatus() {
-    DashboardService.viewStatus(this.state.currentUser.id)
-        .then(response => {
-            this.setState({
-                currentStatus: response.data
-            });
-            console.log(response.data);
-        })
-        .catch(e => {
-            console.log(e);
-        });
-}
-
 
   render() {
-    const { currentApplication, currentIndex, currentJob, currentStatus } = this.state;
+    const { currentApplication, currentIndex, currentJob } = this.state;
     return (
       <div className="container">
         <div className="header-main">
@@ -104,11 +92,7 @@ export default class CandidateDashboard extends Component {
             <div>
               {currentJob ? (
                 <div>
-                  <Popup
-                    trigger={<button type="button" className="btn btn-success" id="status-button">Check Status</button>}
-                    position="top center">
-                    <div><strong>Status: {currentStatus.status}</strong></div>
-                  </Popup>
+                  <Button variant="success" id="status-button" href={`/check/status/${currentJob.jobid}`}>Check Status</Button>
                   <button type="button" className="btn btn-danger" id="status-button">Reject Job</button>
                 </div>
               ) : (
@@ -120,20 +104,6 @@ export default class CandidateDashboard extends Component {
             </div>
           </div>
           <br />
-          <div className="footer-card">
-            <span>
-              <Button variant="success">Interview Status</Button>{' '}
-            </span>
-            <span>
-              <Button variant="success">Fill Pending BGV</Button>{' '}
-            </span>
-            <span>
-              <Button variant="success">Confirm Joining</Button>{' '}
-            </span>
-            <span>
-              <Button variant="success">Download Offer</Button>{' '}
-            </span>
-          </div>
         </div>
       </div>
     );

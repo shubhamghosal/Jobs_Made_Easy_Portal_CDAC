@@ -8,14 +8,16 @@ export default class CandidatesApplied extends Component {
         this.getCandidate = this.getCandidate.bind(this);
         this.selectCandidate = this.selectCandidate.bind(this);
         this.rejectCandidate = this.rejectCandidate.bind(this);
+        this.interviewCandidate = this.interviewCandidate.bind(this);
 
         this.state = {
             currentUser: AuthService.getCurrentUser(),
             currentApplication: [],
             currentCandidate: null,
             currentIndex: -1,
-            selectStatus: "SHORTLISTED",
-            rejectStatus: "REJECTED",
+            selectStatus: "SHORTLISTED FOR EXAM",
+            interviewStatus: "SHORTLISTED FOR INTERVIEW",
+            rejectStatus: "YOU ARE REJECTED",
             message: ""
         };
     }
@@ -50,18 +52,39 @@ export default class CandidatesApplied extends Component {
             this.state.currentCandidate.candid,
             this.props.match.params.id
         )
-        .then(response => {
-            console.log(response.data);
-            this.setState({
-                message: "The candidate is shortlisted successfully!"
+            .then(response => {
+                console.log(response.data);
+                this.setState({
+                    message: "The candidate is shortlisted for exam successfully!"
+                });
+            })
+            .catch(e => {
+                console.log(e);
+                this.setState({
+                    message: "Shortlisting Failed!!!"
+                });
             });
-        })
-        .catch(e => {
-            console.log(e);
-            this.setState({
-                message: "Shortlisting Failed!!!"
+
+    }
+
+    interviewCandidate() {
+        DashboardService.setCandidateStatus(
+            this.state.interviewStatus,
+            this.state.currentCandidate.candid,
+            this.props.match.params.id
+        )
+            .then(response => {
+                console.log(response.data);
+                this.setState({
+                    message: "The candidate is shortlisted for interview successfully!"
+                });
+            })
+            .catch(e => {
+                console.log(e);
+                this.setState({
+                    message: "Shortlisting Failed!!!"
+                });
             });
-        });
 
     }
 
@@ -71,24 +94,24 @@ export default class CandidatesApplied extends Component {
             this.state.currentCandidate.candid,
             this.props.match.params.id
         )
-        .then(response => {
-            console.log(response.data);
-            this.setState({
-                message: "The candidate is rejected successfully!"
+            .then(response => {
+                console.log(response.data);
+                this.setState({
+                    message: "The candidate is rejected successfully!"
+                });
+            })
+            .catch(e => {
+                console.log(e);
+                this.setState({
+                    message: "Rejection Failed!!!"
+                });
             });
-        })
-        .catch(e => {
-            console.log(e);
-            this.setState({
-                message: "Rejection Failed!!!"
-            });
-        });
 
     }
 
-
     render() {
         const { currentApplication, currentIndex, currentCandidate } = this.state;
+
         return (
             <div>
                 <div className="header-main">
@@ -112,7 +135,7 @@ export default class CandidatesApplied extends Component {
                                 ))}
                         </ul>
                     </div>
-                    <br/>
+                    <br />
                     <div>
                         {currentCandidate ? (
                             <div>
@@ -209,10 +232,15 @@ export default class CandidatesApplied extends Component {
                                 </div>
                                 <br />
                                 <div className="form-group">
-                                    <button type="button" className="btn btn-success" onClick={this.selectCandidate}>Shortlist</button>{' '}
-                                    <button type="button" className="btn btn-danger" onClick={this.rejectCandidate}>Reject</button>{' '}
+                                    <div className="micro-card">
+                                        <div className="status-update">Update Status:</div>
+                                        <button type="button" className="btn btn-success" onClick={this.selectCandidate}>Shortlist For Exam</button>{' '}
+                                        <button type="button" className="btn btn-success" onClick={this.interviewCandidate}>Shortlist For Interview</button>{' '}
+                                        <button type="button" className="btn btn-danger" onClick={this.rejectCandidate}>Reject Candidate</button>{' '}
+                                    </div>
+                                    <br/>
                                 </div>
-                                <br/>
+                                <br />
                                 {this.state.message}
                             </div>
                         ) : (

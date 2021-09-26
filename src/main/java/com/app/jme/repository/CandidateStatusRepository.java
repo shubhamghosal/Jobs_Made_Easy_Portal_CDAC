@@ -10,7 +10,7 @@ import com.app.jme.model.CandidateStatus;
 @Repository
 public interface CandidateStatusRepository extends JpaRepository<CandidateStatus, Long>{
 	
-	@Query("FROM CandidateStatus c WHERE cand_id= :candid")
-	CandidateStatus findByCandidateId(@Param("candid") long candid);
+	@Query("FROM CandidateStatus c WHERE (cand_id= :candid) and (job_id= :jobid)")
+	CandidateStatus findByCandidateId(@Param("candid") long candid, @Param("jobid") long jobid);
 
 }

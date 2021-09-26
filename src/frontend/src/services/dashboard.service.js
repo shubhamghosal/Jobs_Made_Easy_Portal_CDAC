@@ -57,11 +57,11 @@ class DashboardService {
     return axios.put(API_URL + `set/status/${status}/${candid}/${jobid}`);
   }
 
-  viewStatus(id) {
-    return axios.get(API_URL + `view/status/${id}`, { headers: authHeader() })
+  viewStatus(id, jobid) {
+    return axios.get(API_URL + `view/status/${id}/${jobid}`, { headers: authHeader() })
   }
 
+  
+
 }
-
-
 export default new DashboardService();

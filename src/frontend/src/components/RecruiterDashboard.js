@@ -88,7 +88,6 @@ export default class RecruiterDashboard extends Component {
               {currentJob ? (
                 <div>
                   <Button variant="success" href={`applied/status/${currentJob.jobid}`}>View Candidates Applied</Button>{' '}
-                  <Button variant="danger" >Drop Job Post</Button>{' '}
                 </div>
               ) : (
                 <div>
@@ -99,23 +98,6 @@ export default class RecruiterDashboard extends Component {
             </div>
           </div>
           <br />
-          <div className="footer-card">
-            <span className="form-group">
-              <Button variant="success">Assign Assesment</Button>
-            </span>
-            <span className="form-group">
-              <Button variant="success">Request BGV</Button>
-            </span>
-            <span className="form-group">
-              <Button variant="success">Assign Interview</Button>
-            </span>
-            <span className="form-group">
-              <Button variant="success">Release Offer</Button>
-            </span>
-            <span className="form-group">
-              <Button variant="success">Reject Candidate</Button>
-            </span>
-          </div>
         </div>
       </div>
     );

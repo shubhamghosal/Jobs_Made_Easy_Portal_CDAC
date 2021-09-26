@@ -194,15 +194,15 @@ public class DashboardController {
 
 	}
 
-	@GetMapping("/view/status/{userid}")
-	public ResponseEntity<?> viewCandidateStatus(@PathVariable("userid") long userid) {
+	@GetMapping("/view/status/{userid}/{jobid}")
+	public ResponseEntity<?> viewCandidateStatus(@PathVariable("userid") long userid,
+			@PathVariable("jobid") long jobid) {
 
 		Optional<Candidate> candidateData = candRepo.findByUserId(userid);
 
 		if (candidateData.isPresent()) {
 			Candidate candidate = candidateData.get();
-
-			CandidateStatus status = candStatusRepo.findByCandidateId(candidate.getCandid());
+			CandidateStatus status = candStatusRepo.findByCandidateId(candidate.getCandid(), jobid);
 
 			return new ResponseEntity<>(status, HttpStatus.OK);
 		} else {
@@ -210,7 +210,5 @@ public class DashboardController {
 		}
 
 	}
-	
-	
 
 }

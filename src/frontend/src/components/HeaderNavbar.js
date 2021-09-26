@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AuthService from '../services/auth.service';
-import { NavDropdown } from 'react-bootstrap';
 import logo from '../img/Jobs_Made_Ease.png';
 
 class HeaderNavbar extends Component {
@@ -59,16 +58,6 @@ class HeaderNavbar extends Component {
                         </li>
 
                         <li className="nav-item">
-                            <NavDropdown
-                                title="Expert Tips"
-                                menuVariant="dark"
-                            >
-                                <NavDropdown.Item href="/exptiprecr">For Recruiters</NavDropdown.Item>
-                                <NavDropdown.Item href="/exptipcand">For Candidates</NavDropdown.Item>
-                            </NavDropdown>
-                        </li>
-
-                        <li className="nav-item">
                             <Link to={"/help"} className="nav-link">
                                 Help
                             </Link>
@@ -96,7 +85,7 @@ class HeaderNavbar extends Component {
                             <div className="nav navbar-nav ml-auto">
                                 <li className="nav-item">
                                     <Link to={`/profile/${currentUser.id}`} className="nav-link">
-                                        {currentUser.username}
+                                        {currentUser.username}'s Profile
                                     </Link>
                                 </li>
                                 <li className="nav-item">
