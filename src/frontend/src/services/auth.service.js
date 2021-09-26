@@ -22,17 +22,54 @@ class AuthService {
     localStorage.removeItem("user");
   }
 
-  register(username, email, password) {
-    return axios.post(API_URL + "signup", {
+  registerRecruiter(role, fullname, username, email, password, mobile, gender, location, skills, compName, compDesignation, yoexp, offLocation, compIndustry, description) {
+    return axios.post(API_URL + "signup/recruiter", {
+      role,
+      fullname,
       username,
       email,
-      password
+      password,
+      mobile,
+      gender,
+      location,
+      skills,
+      compName,
+      compDesignation,
+      yoexp,
+      offLocation,
+      compIndustry,
+      description
+    });
+  }
+
+  registerCandidate(role, fullname, username, email, password, mobile, gender, location, skills, hqual, major, institute, yoq, marks, exp, yoexp, company, foexp, description) {
+    return axios.post(API_URL + "signup/candidate", {
+      role,
+      fullname,
+      username,
+      email,
+      password,
+      mobile,
+      gender,
+      location,
+      skills,
+      hqual,
+      major,
+      institute,
+      yoq,
+      marks,
+      exp,
+      yoexp,
+      company,
+      foexp,
+      description
     });
   }
 
   getCurrentUser() {
     return JSON.parse(localStorage.getItem('user'));
   }
+
 }
 
 export default new AuthService();

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-
-import UserService from "../services/user.service";
+import DashboardService from "../services/dashboard.service";
+import Typist from 'react-typist';
 
 export default class Home extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-    UserService.getPublicContent().then(
+    DashboardService.getPublicContent().then(
       response => {
         this.setState({
           content: response.data
@@ -31,10 +31,19 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className="container">
-        <header className="jumbotron">
-          <h3>{this.state.content}</h3>
-        </header>
+      <div className="jumbotron jumbotron-fluid">
+        <div className="container">
+          <Typist>
+            <span>
+              <h1 className="header"><strong>Hello, to the world of jobs!!</strong></h1>
+
+              <p className="lead">This is a place where we redefine staffing and simplify the concept of complete digital hiring process.</p>
+            </span>
+          </Typist>
+          <p>
+            <a className="btn btn-primary btn-lg" href="/help" role="button">Learn more</a>
+          </p>
+        </div>
       </div>
     );
   }

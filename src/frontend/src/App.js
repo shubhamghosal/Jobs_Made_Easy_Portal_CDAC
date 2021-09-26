@@ -5,21 +5,28 @@ import "./App.css";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
-import Profile from "./components/Profile";
-import Candidate from "./components/Candidate";
-import Recruiter from "./components/Recruiter";
+import CandidateDashboard from "./components/CandidateDashboard";
 import About from "./components/About";
 import Help from "./components/Help";
 import ExpTipCandidate from "./components/ExpTipCandidate";
 import ExpTipRecruiter from "./components/ExpTipRecruiter";
 import FooterBar from "./components/FooterBar";
 import HeaderNavbar from "./components/HeaderNavbar";
+import RegisterCandidate from "./components/RegisterCandidate";
+import RegisterRecruiter from "./components/RegisterRecruiter";
+import EditRecruiterProfile from "./components/EditRecruiterProfile";
+import EditCandidateProfile from "./components/EditCandidateProfile";
+import Profile from "./components/Profile";
+import RecruiterDashboard from "./components/RecruiterDashboard";
+import JobPost from "./components/JobPost";
+import JobDisplay from "./components/JobDisplay";
+import CandidatesApplied from "./components/CandidatesApplied";
 
 const App = () => {
   return (
-    <div>
+    <div className="App">
       <HeaderNavbar />
-      <FooterBar/>
+
       <div className="container mt-3">
         <Switch>
           <Route exact path={["/", "/home"]} component={Home} />
@@ -29,12 +36,22 @@ const App = () => {
           <Route exact path="/exptiprecr" component={ExpTipRecruiter} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/candidate" component={Candidate} />
-          <Route exact path="/recruiter" component={Recruiter} />
+          <Route exact path="/register/candidate" component={RegisterCandidate} />
+          <Route exact path="/register/recruiter" component={RegisterRecruiter} />
+          <Route exact path="/create/job" component={JobPost} />
+          <Route exact path="/get/job" component={JobDisplay} />
+          <Route path="/profile/:id" component={Profile} />
+          <Route path="/profile_rec/:id" component={EditRecruiterProfile} />
+          <Route path="/profile_cand/:id" component={EditCandidateProfile} />
+          <Route path="/candidate" component={CandidateDashboard} />
+          <Route path="/applied/status/:id" component={CandidatesApplied} />
+          <Route exact path="/recruiter" component={RecruiterDashboard} />
         </Switch>
       </div>
+
+      <FooterBar />
     </div>
+
   );
 };
 
