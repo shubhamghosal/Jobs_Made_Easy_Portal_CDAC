@@ -7,7 +7,6 @@ import Register from "./components/Register";
 import Home from "./components/Home";
 import CandidateDashboard from "./components/CandidateDashboard";
 import About from "./components/About";
-import Help from "./components/Help";
 import FooterBar from "./components/FooterBar";
 import HeaderNavbar from "./components/HeaderNavbar";
 import RegisterCandidate from "./components/RegisterCandidate";
@@ -20,6 +19,7 @@ import JobPost from "./components/JobPost";
 import JobDisplay from "./components/JobDisplay";
 import CandidatesApplied from "./components/CandidatesApplied";
 import CheckStatus from "./components/CheckStatus";
+import Contact from "./components/Contact";
 
 const App = () => {
   return (
@@ -30,7 +30,7 @@ const App = () => {
         <Switch>
           <Route exact path={["/", "/home"]} component={Home} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/help" component={Help} />
+          <Route exact path="/contact" component={Contact} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/register/candidate" component={RegisterCandidate} />

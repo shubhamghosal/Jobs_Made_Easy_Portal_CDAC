@@ -58,8 +58,8 @@ class HeaderNavbar extends Component {
                         </li>
 
                         <li className="nav-item">
-                            <Link to={"/help"} className="nav-link">
-                                Help
+                            <Link to={"/contact"} className="nav-link">
+                                Contact Us
                             </Link>
                         </li>
 

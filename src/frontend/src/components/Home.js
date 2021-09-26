@@ -35,7 +35,7 @@ export default class Home extends Component {
         <div className="container">
           <Typist>
             <span>
-              <h1 className="header"><strong>Hello, to the world of jobs!!</strong></h1>
+              <h1 className="header"><strong>Welcome, to the world of new age jobs!!</strong></h1>
 
               <p className="lead">This is a place where we redefine staffing and simplify the concept of complete digital hiring process.</p>
             </span>
