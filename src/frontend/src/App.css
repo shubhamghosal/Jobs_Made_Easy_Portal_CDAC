@@ -172,3 +172,89 @@ input[type="radio"]{
   color: black;
 
 }
+
+/* About us Page */
+
+
+.container_AboutUs{
+  background: white;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 2rem;
+  color: #03162b;
+  overflow:visible;
+}
+.container_AboutUs .Job  p {
+  font-size: 3.5rem ;
+  font-weight: bolder;
+}
+
+.container_AboutUs .Job span{
+  color: rgb(167, 134, 28);
+  font-size: 4.5rem ;
+}
+
+.container_AboutUs .f1{
+  padding: 2%;
+  
+  margin: 5%;
+  background-color: rgb(246, 247, 240);
+  box-shadow: rgba(75, 75, 85, 0.2) 4px 7px 29px 10px;
+  border: none;
+}
+.container_AboutUs .websitelogo{
+  max-width: 50%;
+  display: block;
+  margin: auto;
+  padding: 5%;
+}
+.container_AboutUs .websitelogo img{
+   width: 100%;
+}
+.container_AboutUs .websitecont{
+  padding: 2% 5% 2% 5%;  
+  font-size: 1.2 rem;
+}.container_AboutUs .technology .title{
+    font-size: 3rem;
+    padding: 2%;
+    text-align: center;
+} 
+.container_AboutUs .technology{
+  text-align: left;
+  background: linear-gradient(#3d789b 80%, #69c8ff);
+  color: #dfe4f5;
+}
+.container_AboutUs .team {
+  max-width: 80%;
+  display: block;
+  margin: auto;
+  padding: 3%;
+ 
+}
+.container_AboutUs .team .title{
+  font-size: 3.5rem;
+    padding: 2%;
+    text-align: center;
+}
+.container_AboutUs .team .teamcard img{
+
+}
+.container_AboutUs .team .teamcard{
+     display: grid;
+     grid-template-columns: 3fr 4fr;
+     margin-top: 5%;
+} 
+
+.container_AboutUs .team .teamcard img{
+  width: 100%;
+}
+.container_AboutUs .team .teamcard .teamcont ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 2%
+
+}
