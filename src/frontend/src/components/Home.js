@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-
-import UserService from "../services/user.service";
+import DashboardService from "../services/dashboard.service";
 
 export default class Home extends Component {
   constructor(props) {
@@ -12,7 +11,7 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-    UserService.getPublicContent().then(
+    DashboardService.getPublicContent().then(
       response => {
         this.setState({
           content: response.data
@@ -33,7 +32,7 @@ export default class Home extends Component {
     return (
       <div className="container">
         <header className="jumbotron">
-          <h3>{this.state.content}</h3>
+
         </header>
       </div>
     );

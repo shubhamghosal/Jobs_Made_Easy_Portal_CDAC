@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  padding-bottom: 100px;
+  color:black;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .App-logo {
@@ -15,13 +18,15 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(5px + 2vmin);
   color: white;
+}
+
+.logo-img {
+  padding-left: 5px;
+  position: "relative";
+  width: 140px;
+  height: 70px;
 }
 
 .App-link {
@@ -41,22 +46,29 @@ label {
   margin-top: 10px;
 }
 
-.card-container.card {
-  max-width: 350px !important;
-  padding: 40px 40px;
+.card {
+  width: 80% !important;
+  background-color: whitesmoke;
+  padding: 20px;
+  padding-top: 30px;
+  margin-top: 20px;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px black;
+  border: 5px solid black;
+  text-align: justify;
+  color: black;
+  padding-left: 80px;
 }
 
-.card {
-  background-color: #f7f7f7;
-  padding: 20px 25px 30px;
-  margin: 0 auto 25px;
-  margin-top: 50px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+
+.form-group {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+input[type="radio"]{
+  margin: 0 5px 0 20px;
 }
 
 .profile-img-card {
@@ -69,15 +81,94 @@ label {
   border-radius: 50%;
 }
 
-.footer {
+
+.candidateReg {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+
+.recruiterReg {
+  margin: auto;
+  width: 40%;
+  padding: 10px;
+}
+
+.footer{
+  background-color: #292d35;
+  text-align: center;
+  font-weight: bold;
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
-  height: 40px;
-  background-color: black;
-  text-align: center;
-  color: white;
+  height: auto;
 }
-.login{
-  padding-bottom: 5rem;
+
+.header-text {
+  text-align: center;
+  font-size: x-large;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.header-main {
+  text-align: center;
+  font-size: large;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  text-decoration: underline;
+  color: black;
+  font-size: 70px;
+  border: 5px solid black;
+  border-radius: 5px;
+  border: 5px solid black;
+  color: white;
+  background-color: #3a3f49 ;
+}
+
+.profile {
+  font-size: x-large;
+  font-family: sans-serif;
+  color: darkblue;
+  align-self: center;
+  margin: auto;
+  padding-top: 10px;
+}
+
+#return-profile{
+  margin-left: 40px;
+}
+
+
+.mini-card {
+  width: 60% !important;
+  background-color: whitesmoke;
+  padding: 20px;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px black;
+  border: 5px solid black;
+  text-align: center;
+  color: black;
+}
+
+.header-sub {
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 30px;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.footer-card {
+  width: 100% !important;
+  background-color: whitesmoke;
+  padding: 20px;
+  padding-top: 30px;
+  margin-top: 20px;
+  text-align: justify;
+  color: black;
+
 }

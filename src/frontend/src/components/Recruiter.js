@@ -1,43 +1,39 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button, Card } from 'react-bootstrap';
 
-import UserService from "../services/user.service";
-
-export default class Recruiter extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      content: ""
-    };
-  }
-
-  componentDidMount() {
-    UserService.getRecruiter().then(
-      response => {
-        this.setState({
-          content: response.data
-        });
-      },
-      error => {
-        this.setState({
-          content:
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString()
-        });
-      }
-    );
-  }
-
+export default class Register extends Component {
   render() {
     return (
-      <div className="container">
-        <header className="jumbotron">
-          <h3>{this.state.content}</h3>
-        </header>
+      <div>
+        <br/>
+        <div>
+          <Card>
+            <Card.Header as="h5">Are you a Recruiter looking to hire?</Card.Header>
+            <Card.Body>
+              <Card.Title>Find the most suitable candidates here. Register Now!!!</Card.Title>
+              <Card.Text>
+                Click below to continue
+              </Card.Text>
+              <Button variant="success" href="/register/recruiter">For Recruiters</Button>
+            </Card.Body>
+          </Card>
+        </div>
+        <br/>
+        <br/>
+        <div>
+          <Card>
+            <Card.Header as="h5">Are you a Candidate looking for a job?</Card.Header>
+            <Card.Body>
+              <Card.Title>Find your dream job right here. Register Now!!!</Card.Title>
+              <Card.Text>
+                Click below to continue
+              </Card.Text>
+              <Button variant="success" href="/register/candidate">For Candidates</Button>
+            </Card.Body>
+          </Card>
+        </div>
       </div>
-    );
+    )
   }
 }

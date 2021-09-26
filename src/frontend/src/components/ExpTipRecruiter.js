@@ -76,10 +76,7 @@ export default class ExpTipRecruiter extends Component {
     });
    }
  validate = () => {
-   let worknameError="";
-   let minsalaryError="";
-   let maxsalaryError="";
-   let openingError="";
+  
 
    if(this.state.workname.length<1 || this.state.workname.length>20 )
      { 
@@ -134,7 +131,7 @@ export default class ExpTipRecruiter extends Component {
   render() {
     return (
       <div className="container">
-      <div className="">
+      <div className="register_container">
 
 
       

@@ -5,7 +5,7 @@ export default class FooterBar extends Component {
         return (
             <div>
                 <footer className= "footer">
-                    <span className="text-muted">All Rights Reserved 2021 @JME</span>
+                    <span className="text-muted">All Rights Reserved 2021 @Jobs Made Easy</span>
                 </footer>
             </div>
         )
