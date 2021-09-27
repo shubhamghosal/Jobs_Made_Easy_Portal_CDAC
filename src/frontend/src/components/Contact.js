@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import * as emailjs from 'emailjs-com';
+import 'aos/dist/aos.css'
+
 class Contact extends Component {
   constructor(props) {
     super(props);
@@ -73,7 +75,7 @@ class Contact extends Component {
           <label for="subject">Message:</label>
           <textarea name="message" ref="message" onChange={this.handleChangeMessage} />
         </div>
-        <br/>
+        <br />
         <div>
           <button type="submit" onClick={this.sendMail}>Send Email</button>
         </div>

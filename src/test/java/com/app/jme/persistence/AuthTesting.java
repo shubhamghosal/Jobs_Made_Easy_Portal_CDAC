@@ -43,7 +43,7 @@ class AuthTesting {
 
 		User user = new User("rajesh", "raj@gmail.com", encoder.encode("123456"));
 
-		Role candRole = roleRepository.findByName(ERole.CANDIDATE).get();
+ 		Role candRole = roleRepository.findByName(ERole.CANDIDATE).get();
 
 		roles.add(candRole);
 

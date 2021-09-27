@@ -38,7 +38,7 @@ class MappingTest {
 	void testTotalUserCount() {
 
 		long userCount = userRepo.count();
-		assertTrue(userCount == 5);
+		assertTrue(userCount == 6);
 	}
 
 	@Test
