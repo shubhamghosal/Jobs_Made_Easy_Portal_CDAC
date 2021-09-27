@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import DashboardService from "../services/dashboard.service";
 import AuthService from "../services/auth.service";
+import { Button } from 'react-bootstrap';
 
 export default class JobDisplay extends Component {
     constructor(props) {
@@ -190,6 +191,7 @@ export default class JobDisplay extends Component {
                                 <br />
                                 <div>
                                     <button className="btn btn-success" type="button" onClick={this.applyJob}>Apply</button>
+                                    <Button variant="danger" href="/candidate">Return To Dashboard</Button>
                                 </div>
                                 <br/>
                                 <div className="form-group">

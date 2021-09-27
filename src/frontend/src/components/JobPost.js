@@ -5,6 +5,7 @@ import DashboardService from "../services/dashboard.service";
 import Input from "react-validation/build/input";
 import Text from "react-validation/build/textarea";
 import AuthService from "../services/auth.service";
+import { Button } from 'react-bootstrap';
 
 const required = value => {
     if (!value) {
@@ -291,6 +292,7 @@ export default class JobPost extends Component {
                                 <br />
                                 <div className="form-group">
                                     <button className="btn btn-primary btn-block">Create Job Post</button>
+                                    <Button variant="danger" href="/recruiter">Return To Dashboard</Button>
                                 </div>
 
                             </div>)}

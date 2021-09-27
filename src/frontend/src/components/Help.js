@@ -18,8 +18,8 @@ function Help() {
 
          <div data-aos="fade-up" className="tag" >
             <div className="tagtitle">Login</div>
-            <div className="tagcontent">Welcome to Jobs_Made_Easy then make sure you have your login Id for Recruiter as well as For Candidate.
-               If you are New then please Register.</div>
+            <div className="tagcontent">Welcome to our Jobs Made Easy Portal. Then do make sure you have your login Id and an email both for Recruiters as well as for Candidates.
+               If you are New to this place then please Register.</div>
          </div>
          <div className="tag">
             <div className="tagtitle">SignUp</div>
@@ -35,14 +35,13 @@ function Help() {
          </div>
          <div data-aos="fade-up" className="tag">
             <div className="tagtitle">AboutUs</div>
-            <div className="tagcontent">the Moto of the company  and the
-               Contact details of tht creaters of the company with Name, phone no.,PRN no. and Email id</div>
+            <div className="tagcontent">The Moto of the company  and the
+               Contact details of tht creaters of the company with Name, phone no.,PRN no. and Email id are given here.</div>
          </div>
 
          <div data-aos="fade-up" className="tag">
             <div className="tagtitle">Contact Us</div>
-            <div className="tagcontent">the Moto of the company  and the
-               Contact details of tht creaters of the company with Name, phone no.,PRN no. and Email id</div>
+            <div className="tagcontent">The place where you can address your issues by sending an email and be rest assured to get it sorted within 24 hours</div>
          </div>
 
       </div>

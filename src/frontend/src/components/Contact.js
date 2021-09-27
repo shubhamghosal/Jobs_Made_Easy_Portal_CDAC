@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as emailjs from 'emailjs-com';
-import 'aos/dist/aos.css'
+import 'aos/dist/aos.css';
+import { Laptop } from 'react-bootstrap-icons';
 
 class Contact extends Component {
   constructor(props) {
@@ -57,7 +58,7 @@ class Contact extends Component {
     return (
       <div className="mini-card" data-aos="zoom-in-down" data-aos-duration="1000">
         <header className="header-sub">
-          <h2><strong>Get In Touch With Us</strong></h2>
+          <h2><strong><Laptop color="black" size={60} /> {' '}Get In Touch With Us</strong></h2>
         </header>
         <div>
           <label for="name">Name:</label>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import DashboardService from "../services/dashboard.service";
 import AuthService from "../services/auth.service";
+import { Button } from 'react-bootstrap';
 
 export default class CheckStatus extends Component {
     constructor(props) {
@@ -43,8 +44,10 @@ export default class CheckStatus extends Component {
                 </div>
                 <div className="card">
                     <div className="mini-card">
-                        <h3><u>Current Status:</u></h3> {' '}
-                        <div>{status}</div>
+                        <h2><u>Current Status:</u></h2> {' '}
+                        <div><b>*{status}*</b></div>
+                        <br/>
+                        <Button variant="danger" href="/candidate">Return To Dashboard</Button>
                     </div>
                 </div>
             </div>
