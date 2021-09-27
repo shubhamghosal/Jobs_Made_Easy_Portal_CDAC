@@ -20,6 +20,7 @@ import JobDisplay from "./components/JobDisplay";
 import CandidatesApplied from "./components/CandidatesApplied";
 import CheckStatus from "./components/CheckStatus";
 import Contact from "./components/Contact";
+import Help from "./components/Help";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Switch>
           <Route exact path={["/", "/home"]} component={Home} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/help" component={Help} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />

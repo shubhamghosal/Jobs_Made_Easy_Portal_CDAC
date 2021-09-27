@@ -63,6 +63,12 @@ class HeaderNavbar extends Component {
                             </Link>
                         </li>
 
+                        <li className="nav-item">
+                            <Link to={"/help"} className="nav-link">
+                                Help
+                            </Link>
+                        </li>
+
                         {showRecruiter && (
                             <li className="nav-item">
                                 <Link to={"/recruiter"} className="nav-link">

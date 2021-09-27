@@ -23,7 +23,7 @@ function About() {
          </div>    
          <div className="website f1">
             <div className="websitelogo">
-                <img src={logo}  />  
+                <img src={logo} alt="name" />  
             </div>
             <div data-aos="fade" className="websitecont">
             Jobs Made Easy(JME) Portal is uniquely designed to bridge. the gap between a recruiter and a suitable candidate, in times when digital transformation is becoming a need for the industry. This project typically eases the entire recruitment process cycle starting from job search to candidates onboarding in a certain company.
@@ -42,7 +42,7 @@ function About() {
       <div data-aos="fade-left" className="team f1">
       <div className="title">Team</div>
            <div data-aos="fade-left" className="teamcard">
-                  <img src={shub}/>
+                  <img src={shub} alt="name"/>
            
                  <div className="teamcont">
                       <ul>
@@ -54,7 +54,7 @@ function About() {
                   </div>
             </div> 
            <div data-aos="fade-right" className="teamcard">
-              <img src={vj}/>
+              <img src={vj} alt="name"/>
      
               <div className="teamcont">
                 <ul>
@@ -66,7 +66,7 @@ function About() {
             </div>
           </div>
           <div data-aos="fade-left" className="teamcard">
-          <img src={shiv}/>
+          <img src={shiv} alt="name"/>
    
          <div className="teamcont">
               <ul>
@@ -78,7 +78,7 @@ function About() {
           </div>
     </div>                   
     <div data-aos="fade-right" className="teamcard">
-    <img src={ashi}/>
+    <img src={ashi} alt="name"/>
 
    <div className="teamcont">
         <ul>
@@ -90,7 +90,7 @@ function About() {
     </div>
 </div>                           
                <div data-aos="fade-right" className="teamcard">
-                  <img src={yog}/>
+                  <img src={yog} alt="name"/>
            
                  <div className="teamcont">
                       <ul>
