@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import { isEmail, isMobilePhone  } from "validator";
+import { isEmail, isMobilePhone } from "validator";
 import { Tab, Tabs } from 'react-bootstrap';
 
 import AuthService from "../services/auth.service";
@@ -96,10 +96,10 @@ export default class RegisterRecruiter extends Component {
       location: "",
       skills: "",
       compName: "",
-      compDesignation:"",
+      compDesignation: "",
       yoexp: "",
-      offLocation:"",
-      compIndustry:"",
+      offLocation: "",
+      compIndustry: "",
       description: "",
       successful: false,
       message: ""
@@ -225,13 +225,9 @@ export default class RegisterRecruiter extends Component {
             successful: true
           });
         },
-        error => {
+        e => {
           const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
+            (e.response && e.response.data && e.response.data.message) || e.message || e.toString();
 
           this.setState({
             successful: false,
@@ -379,7 +375,7 @@ export default class RegisterRecruiter extends Component {
                     </div>
                   </Tab>
                   <Tab eventKey="professional" title="Professional Details" >
-                  <div className="form-group">
+                    <div className="form-group">
                       <label htmlFor="compName">Current Company Name *</label>
                       <Input
                         type="text"
@@ -468,8 +464,8 @@ export default class RegisterRecruiter extends Component {
                         onChange={this.onChangeDescription}
                       />
                     </div>
-                  <br/>
-                  <div className="form-group">
+                    <br />
+                    <div className="form-group">
                       <button className="btn btn-primary btn-block">Sign Up</button>
                     </div>
                   </Tab>
