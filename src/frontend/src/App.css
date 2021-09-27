@@ -103,6 +103,7 @@ input[type="radio"]{
   left: 0;
   width: 100%;
   height: auto;
+  z-index: 100;
 }
 
 .header-text {
@@ -240,9 +241,7 @@ input[type="radio"]{
     padding: 2%;
     text-align: center;
 }
-.container_AboutUs .team .teamcard img{
 
-}
 .container_AboutUs .team .teamcard{
      display: grid;
      grid-template-columns: 3fr 4fr;
@@ -257,4 +256,70 @@ input[type="radio"]{
   margin: 0;
   padding: 2%
 
+}
+
+/*  Help page */
+.helpcontainer{
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(#ffffff 30%, #69c8ff);
+}
+.helpcontainer .title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:4% 0 0 0 ;
+  width: 100%;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 4.5em;
+  margin-bottom: 7%;
+  color: #b69c08;
+
+}
+.helpcontainer .tag{
+   position: relative;
+   padding: 2%;
+   width: 55vw;
+   margin: 2%;
+   transition-duration: 2s;
+   transition-timing-function: ease-in-out;
+ }
+ .helpcontainer .tagtitle{
+    font-size: 40px;
+    position: absolute;
+    background-color: #3f7a9c;
+    color: rgb(255, 255, 255);
+    padding-top: 3%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    transition: all 250ms;
+    transition-timing-function: ease-in-out;
+ }
+ .helpcontainer .tagcontent{
+    position: relative;
+    color: #ffffff;
+    background-color: #afa842;
+    padding: 1%;
+    font-size: 25px;
+    transform: scale(.7);
+    transition: all 250ms;
+    transition-timing-function: ease-in-out;   
+ }
+ .helpcontainer .tag:hover .tagtitle{
+   transform: scale(.7);
+   opacity: 0;
+ }
+ .helpcontainer .tag:hover .tagcontent{
+  transform: scale(1);
+  transition: all 250ms;
+  transition-timing-function: ease-in-out;
+  
+  border-radius: 1%;
+  box-shadow: rgba(75, 75, 85, 0.2) 1em 1em 1em .1em;
 }
