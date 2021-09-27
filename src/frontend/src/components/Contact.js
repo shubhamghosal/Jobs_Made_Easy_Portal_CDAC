@@ -54,7 +54,7 @@ class Contact extends Component {
   render() {
     return (
       <div className="mini-card">
-        <header className="header-text">
+        <header className="header-sub">
           <h2><strong>Get In Touch With Us</strong></h2>
         </header>
         <div>
@@ -71,7 +71,7 @@ class Contact extends Component {
         </div>
         <div>
           <label for="subject">Message:</label>
-          <input type="textarea" name="message" ref="message" onChange={this.handleChangeMessage} />
+          <textarea name="message" ref="message" onChange={this.handleChangeMessage} />
         </div>
         <br/>
         <div>

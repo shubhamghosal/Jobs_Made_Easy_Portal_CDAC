@@ -41,7 +41,7 @@ export default class Home extends Component {
             </span>
           </Typist>
           <p>
-            <a className="btn btn-primary btn-lg" href="/help" role="button">Learn more</a>
+            <a className="btn btn-primary btn-lg" href="/about" role="button">Learn more</a>
           </p>
         </div>
       </div>
