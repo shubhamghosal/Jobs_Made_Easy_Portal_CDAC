@@ -20,7 +20,7 @@ import com.app.jme.repository.RoleRepository;
 import com.app.jme.repository.UserRepository;
 
 @SpringBootTest
-class MappingTest {
+class UserMappingTest {
 
 	@Autowired
 	UserRepository userRepo;
@@ -38,7 +38,7 @@ class MappingTest {
 	void testTotalUserCount() {
 
 		long userCount = userRepo.count();
-		assertTrue(userCount == 6);
+		assertTrue(userCount == 13);
 	}
 
 	@Test
@@ -84,23 +84,19 @@ class MappingTest {
 		User userData = userRepo.findById(id).get();
 
 		Candidate cand = candRepo.findByUserId(userData.getUserid()).get();
-		
+
 		Role role = roleRepository.findByName(ERole.CANDIDATE).get();
 
 		String usname1 = cand.getUser().getUsername();
 
 		String usname2 = userData.getUsername();
-		
-		if(role.getName()==ERole.CANDIDATE) {
+
+		if (role.getName() == ERole.CANDIDATE) {
 			assertTrue(usname1.equals(usname2));
-		}
-		else {
+		} else {
 			assertFalse(usname1.equals(usname2));
 		}
 
-
 	}
-	
-	
 
 }

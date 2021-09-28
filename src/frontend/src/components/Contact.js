@@ -78,7 +78,7 @@ class Contact extends Component {
         </div>
         <br />
         <div>
-          <button type="submit" onClick={this.sendMail}>Send Email</button>
+          <button type="submit" onClick={this.sendMail} className="btn btn-outline-success">Send Email</button>
         </div>
       </div>
     );

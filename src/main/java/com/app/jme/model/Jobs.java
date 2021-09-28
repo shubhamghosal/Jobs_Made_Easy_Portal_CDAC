@@ -29,7 +29,7 @@ public class Jobs implements Serializable {
 	private Long jobid;
 
 	@Size(min = 3, max = 20)
-	@Column(name = "full_name")
+	@Column(name = "job_title")
 	private String jobTitle;
 
 	@Column(name = "vacancy")
