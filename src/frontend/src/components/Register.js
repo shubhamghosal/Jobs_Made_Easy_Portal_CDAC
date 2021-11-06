@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Card } from 'react-bootstrap';
-import 'aos/dist/aos.css'
 
 export default class Register extends Component {
   render() {
@@ -9,7 +8,7 @@ export default class Register extends Component {
       <div>
         <br/>
         <div>
-          <Card data-aos="fade-left">
+          <Card>
             <Card.Header as="h5">Are you a Recruiter looking to hire?</Card.Header>
             <Card.Body>
               <Card.Title>Find the most suitable candidates here. Register Now!!!</Card.Title>
@@ -23,7 +22,7 @@ export default class Register extends Component {
         <br/>
         <br/>
         <div>
-          <Card data-aos="fade-right">
+          <Card>
             <Card.Header as="h5">Are you a Candidate looking for a job?</Card.Header>
             <Card.Body>
               <Card.Title>Find your dream job right here. Register Now!!!</Card.Title>
