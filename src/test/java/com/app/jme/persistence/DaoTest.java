@@ -50,11 +50,11 @@ class DaoTest {
 		/* recruiterRepo.save(recruiter); */
 	}
 
-	@Test
-	public void getRecruiter() {
-		Candidate cand = candidateRepo.findByUserId((long) 1).get();
-
-		assertTrue(cand.getCandid() == 1);
-	}
+	/*
+	 * @Test public void getRecruiter() { Candidate cand =
+	 * candidateRepo.findByUserId((long) 1).get();
+	 * 
+	 * assertTrue(cand.getCandid() == 1); }
+	 */
 
 }

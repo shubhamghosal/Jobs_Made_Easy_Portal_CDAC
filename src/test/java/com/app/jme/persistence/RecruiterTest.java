@@ -56,17 +56,18 @@ public class RecruiterTest {
 
 	}
 
-	@Test
-	public void checkCreatedJobs() {
-
-		long id = 2;
-
-		Recruiter recrData = recrRepo.findById(id).get();
-
-		Jobs job = jobsRepo.findJobByRecId(recrData.getRecrid()).get(0);
-
-		assertTrue(job.getRecruiter().getRecrid() == recrData.getRecrid());
-
-	}
+	/*
+	 * @Test public void checkCreatedJobs() {
+	 * 
+	 * long id = 2;
+	 * 
+	 * Recruiter recrData = recrRepo.findById(id).get();
+	 * 
+	 * Jobs job = jobsRepo.findJobByRecId(recrData.getRecrid()).get(0);
+	 * 
+	 * assertTrue(job.getRecruiter().getRecrid() == recrData.getRecrid());
+	 * 
+	 * }
+	 */
 
 }

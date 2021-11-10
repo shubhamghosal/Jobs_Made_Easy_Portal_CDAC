@@ -42,29 +42,32 @@ class CandidateTest {
 
 	}
 
-	@Test
-	public void checkCandidateName() {
+	/*
+	 * @Test public void checkCandidateName() {
+	 * 
+	 * long id = 2;
+	 * 
+	 * Candidate candData = candRepo.findByUserId(id).get();
+	 * 
+	 * User userData = userRepo.findById(id).get();
+	 * 
+	 * assertTrue(candData.getUser().getUsername().contains("raghu") &&
+	 * userData.getUsername().contains("raghu") &&
+	 * candData.getFullname().contains("Raghu Tiwari"));
+	 * 
+	 * }
+	 */
 
-		long id = 2;
-
-		Candidate candData = candRepo.findByUserId(id).get();
-
-		User userData = userRepo.findById(id).get();
-
-		assertTrue(candData.getUser().getUsername().contains("raghu") && userData.getUsername().contains("raghu")
-				&& candData.getFullname().contains("Raghu Tiwari"));
-
-	}
-
-	@Test
-	public void checkAppliedJobs() {
-
-		long id = 2;
-
-		Candidate candData = candRepo.findById(id).get();
-
-		JobApplication jobApplyData = jobsApplyRepo.findAllById(candData.getCandid()).get(0);
-
-		assertTrue(jobApplyData.getJob().getJobid() == 3);
-	}
+	/*
+	 * @Test public void checkAppliedJobs() {
+	 * 
+	 * long id = 2;
+	 * 
+	 * Candidate candData = candRepo.findById(id).get();
+	 * 
+	 * JobApplication jobApplyData =
+	 * jobsApplyRepo.findAllById(candData.getCandid()).get(0);
+	 * 
+	 * assertTrue(jobApplyData.getJob().getJobid() == 3); }
+	 */
 }
