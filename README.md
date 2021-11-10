@@ -6,4 +6,4 @@
 </ul>
 
 <h1>React JS Heroku Deployment</h1>
-<a href="https://jobs-made-easy.herokuapp.com/">View Deployment</a>
+<a href="https://jobs-made-easy-frontend.herokuapp.com/">View Deployment</a>
