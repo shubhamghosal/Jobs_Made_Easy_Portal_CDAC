@@ -4,3 +4,6 @@
 <li>The USP of our portal is that it eases the entire recruitment process cycle starting from job search to candidate’s onboarding in a certain company.</li>
 <li>Stay tuned for more updates on this ongoing project... </li>
 </ul>
+
+<h1>React JS Heroku Deployment</h1>
+<a href="https://jobs-made-easy.herokuapp.com/">View Deployment</a>
