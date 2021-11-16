@@ -6,7 +6,7 @@ export default class Register extends Component {
   render() {
     return (
       <div>
-        <br/>
+        <br />
         <div>
           <Card>
             <Card.Header as="h5">Are you a Recruiter looking to hire?</Card.Header>
@@ -19,8 +19,8 @@ export default class Register extends Component {
             </Card.Body>
           </Card>
         </div>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <div>
           <Card>
             <Card.Header as="h5">Are you a Candidate looking for a job?</Card.Header>

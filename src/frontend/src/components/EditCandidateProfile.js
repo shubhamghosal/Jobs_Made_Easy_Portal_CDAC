@@ -76,6 +76,7 @@ export default class EditCandidateProfile extends Component {
                 this.setState({
                     message: "The candidate was updated successfully!"
                 });
+                alert("The candidate was updated successfully!");
             })
             .catch(e => {
                 console.log(e);

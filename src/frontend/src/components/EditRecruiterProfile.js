@@ -68,6 +68,7 @@ export default class EditRecruiterProfile extends Component {
                 this.setState({
                     message: "The recruiter was updated successfully!"
                 });
+                alert("The recruiter was updated successfully!");
             })
             .catch(e => {
                 console.log(e);
